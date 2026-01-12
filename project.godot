@@ -11,5 +11,17 @@ config_version=5
 [application]
 
 config/name="Pīrādziņu_Piedzīvojumi"
+run/main_scene="res://node_2d.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=2560
+window/size/viewport_height=1600
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
+textures/lossless_compression/force_png=true
