@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dux1ml5l2qhd"]
+
+[ext_resource type="Texture2D" uid="uid://djls4dm7d3i2y" path="res://assets/durvis.png" id="1_yw0ou"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gysjk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yw0ou")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="durvis" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_gysjk")

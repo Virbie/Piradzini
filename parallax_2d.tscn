@@ -6,6 +6,6 @@
 scroll_scale = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(665, 1200)
-scale = Vector2(1.0067242, 1.0369262)
+position = Vector2(708.00006, 1233)
+scale = Vector2(0.8764023, 0.9026945)
 texture = ExtResource("1_l70dm")

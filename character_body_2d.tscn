@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cwl3ceqo7qaa5"]
 
 [ext_resource type="Script" uid="uid://dt4l8p6wp5ph1" path="res://Piradzins.gd" id="1_ij6vw"]
-[ext_resource type="Texture2D" uid="uid://ddcu78x72haxs" path="res://assets/gopniks-01.png" id="2_ghijl"]
+[ext_resource type="Texture2D" uid="uid://ddcu78x72haxs" path="res://assets/gopniks/gopniks-01.png" id="2_ghijl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ij6vw"]
 radius = 21.0
@@ -12,7 +12,7 @@ position = Vector2(-1, -1)
 script = ExtResource("1_ij6vw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(4, 4)
 limit_left = -9999999
 limit_right = 10000001
 limit_bottom = -20

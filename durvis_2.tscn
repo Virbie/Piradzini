@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpvltch70e534"]
+
+[ext_resource type="Texture2D" uid="uid://djls4dm7d3i2y" path="res://assets/durvis.png" id="1_577au"]
+
+[node name="durvis2" type="Sprite2D"]
+texture = ExtResource("1_577au")
