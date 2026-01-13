@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://djls4dm7d3i2y" path="res://assets/durvis.png" id="1_yw0ou"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_gysjk"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_yw0ou"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -13,5 +13,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="durvis" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_gysjk")
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(4, -30, 4, 30, 4, 32, -4, 32, -4, -32, 4, -32)
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yw0ou")

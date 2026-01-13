@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpvltch70e534"]
+[gd_scene load_steps=3 format=3 uid="uid://bpvltch70e534"]
 
 [ext_resource type="Texture2D" uid="uid://djls4dm7d3i2y" path="res://assets/durvis.png" id="1_577au"]
 
-[node name="durvis2" type="Sprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_577au"]
+size = Vector2(8, 64)
+
+[node name="durvis2" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_577au")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_577au")
