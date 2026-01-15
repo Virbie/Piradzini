@@ -150,3 +150,5 @@ func handle_wall_slide(delta):
 func handle_timers(delta):
 	coyote_timer = max(coyote_timer - delta, 0)
 	jump_buffer_timer = max(jump_buffer_timer - delta, 0)
+	
+	
