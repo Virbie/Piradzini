@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://ch73di6uysh7m"]
+[gd_scene load_steps=14 format=4 uid="uid://ch73di6uysh7m"]
 
 [ext_resource type="PackedScene" uid="uid://cwl3ceqo7qaa5" path="res://character_body_2d.tscn" id="1_0e48y"]
 [ext_resource type="PackedScene" uid="uid://dkkxtlnnx7b7g" path="res://parallax_2d.tscn" id="1_epypp"]
 [ext_resource type="Texture2D" uid="uid://terf5wcans80" path="res://assets/tilesheet.png" id="2_0e48y"]
 [ext_resource type="PackedScene" uid="uid://dux1ml5l2qhd" path="res://durvis.tscn" id="3_4d7sh"]
+[ext_resource type="Texture2D" uid="uid://dbdy8h8irw1g7" path="res://assets/piradzins.png" id="3_ir8iy"]
 [ext_resource type="PackedScene" uid="uid://bpvltch70e534" path="res://durvis_2.tscn" id="4_ir8iy"]
 [ext_resource type="Texture2D" uid="uid://dxvaux07ewxa6" path="res://assets/gopniks/gopniks-02.png" id="5_rj586"]
 [ext_resource type="Texture2D" uid="uid://3c507kluskks" path="res://assets/gopniks/gopniks-03.png" id="6_4d7sh"]
@@ -1140,9 +1141,19 @@ texture = ExtResource("2_0e48y")
 60:13/0 = 0
 61:13/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hqns4"]
+texture = ExtResource("3_ir8iy")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/next_alternative_id = 2
+0:0/0 = 0
+0:0/1 = 1
+4:0/size_in_atlas = Vector2i(4, 4)
+4:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_0hol4"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_epypp")
+sources/2 = SubResource("TileSetAtlasSource_hqns4")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqns4"]
 animations = [{
@@ -1278,7 +1289,7 @@ position = Vector2(225, 320)
 position = Vector2(-608, -320)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_0e48y")]
-position = Vector2(724, -22)
+position = Vector2(755, 19)
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 position = Vector2(0, 1)
