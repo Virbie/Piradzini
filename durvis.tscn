@@ -20,4 +20,5 @@ polygon = PackedVector2Array(4, -30, 4, 30, 4, 32, -4, 32, -4, -32, 4, -32)
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -8)
 sprite_frames = SubResource("SpriteFrames_yw0ou")
