@@ -27,6 +27,10 @@ extends CharacterBody2D
 # ==============================
 # INTERNAL STATE
 # ==============================
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+
+var was_moving := false
+
 
 var input_dir := 0
 var facing := 1
@@ -53,6 +57,7 @@ func _physics_process(delta):
 	handle_wall_slide(delta)
 
 	move_and_slide()
+	handle_animations()
 
 # ==============================
 # INPUT
@@ -151,4 +156,25 @@ func handle_timers(delta):
 	coyote_timer = max(coyote_timer - delta, 0)
 	jump_buffer_timer = max(jump_buffer_timer - delta, 0)
 	
-	
+func handle_animations():
+	var is_moving: bool = abs(velocity.x) > 10 and is_on_floor()
+	var dir := "right" if facing == 1 else "left"
+
+	# START RUN
+	if is_moving and not was_moving:
+		anim.play("sak_skriet_" + dir)
+
+	# RUN LOOP
+	elif is_moving:
+		if not anim.animation.begins_with("skrien_"):
+			anim.play("skrien_" + dir)
+
+	# STOP RUN
+	elif was_moving and not is_moving:
+		anim.play("skrien_beidz_" + dir)
+
+	# IDLE (this is the fix)
+	elif not is_moving and not anim.animation.begins_with("idle_"):
+		anim.play("idle_" + dir)
+
+	was_moving = is_moving

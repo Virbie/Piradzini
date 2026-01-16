@@ -23,30 +23,6 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("2_ij6vw")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qp52p"]
-atlas = ExtResource("2_ij6vw")
-region = Rect2(128, 128, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_au0nh"]
-atlas = ExtResource("2_ij6vw")
-region = Rect2(256, 128, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_76bt2"]
-atlas = ExtResource("2_ij6vw")
-region = Rect2(320, 128, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sxias"]
-atlas = ExtResource("2_ij6vw")
-region = Rect2(192, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ucfvk"]
-atlas = ExtResource("2_ij6vw")
-region = Rect2(64, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2dyae"]
-atlas = ExtResource("2_ij6vw")
-region = Rect2(0, 64, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_2u5n8"]
 atlas = ExtResource("2_ij6vw")
 region = Rect2(320, 128, 64, 64)
@@ -70,6 +46,30 @@ region = Rect2(64, 64, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ye16i"]
 atlas = ExtResource("2_ij6vw")
 region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp52p"]
+atlas = ExtResource("2_ij6vw")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au0nh"]
+atlas = ExtResource("2_ij6vw")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76bt2"]
+atlas = ExtResource("2_ij6vw")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxias"]
+atlas = ExtResource("2_ij6vw")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucfvk"]
+atlas = ExtResource("2_ij6vw")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dyae"]
+atlas = ExtResource("2_ij6vw")
+region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75u2t"]
 atlas = ExtResource("2_ij6vw")
@@ -141,7 +141,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_dd465")
 }],
 "loop": true,
-"name": &"Idle pa kreisis",
+"name": &"idle_left",
 "speed": 1.0
 }, {
 "frames": [{
@@ -152,36 +152,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_44cfe")
 }],
 "loop": true,
-"name": &"Idle pa labi",
+"name": &"idle_right",
 "speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qp52p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_au0nh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_76bt2")
-}],
-"loop": true,
-"name": &"beidz skriet pa kreisi",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sxias")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ucfvk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2dyae")
-}],
-"loop": true,
-"name": &"beidz skriet pa labi",
-"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -194,7 +166,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_skrk8")
 }],
 "loop": true,
-"name": &"sak skriet pa kreisi",
+"name": &"sak_skriet_left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -208,7 +180,35 @@ animations = [{
 "texture": SubResource("AtlasTexture_ye16i")
 }],
 "loop": true,
-"name": &"sak skriet pa labi",
+"name": &"sak_skriet_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp52p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_au0nh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76bt2")
+}],
+"loop": false,
+"name": &"skrien_beidz_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxias")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucfvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dyae")
+}],
+"loop": false,
+"name": &"skrien_beidz_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -237,7 +237,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_a7mna")
 }],
 "loop": true,
-"name": &"skrien pa kreisi",
+"name": &"skrien_left",
 "speed": 15.0
 }, {
 "frames": [{
@@ -266,7 +266,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_y1dt5")
 }],
 "loop": true,
-"name": &"skrien pa labi",
+"name": &"skrien_right",
 "speed": 15.0
 }]
 
@@ -289,5 +289,4 @@ shape = SubResource("CapsuleShape2D_ij6vw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-12, -21)
 sprite_frames = SubResource("SpriteFrames_dd465")
-animation = &"skrien pa kreisi"
-frame_progress = 0.12728736
+animation = &"skrien_beidz_left"
