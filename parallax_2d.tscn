@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://cbrpc7fnf0nlc" path="res://assets/sky.png" id="1_l70dm"]
 
-[node name="Parallax2D" type="Parallax2D"]
+[node name="debesis" type="Parallax2D"]
 scroll_scale = Vector2(0, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="debesis" type="Sprite2D" parent="."]
 position = Vector2(708.00006, 1233)
 scale = Vector2(0.8764023, 0.9026945)
 texture = ExtResource("1_l70dm")

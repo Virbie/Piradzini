@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0t3oyrml524d"]
+
+[ext_resource type="Texture2D" uid="uid://dql1b1kruvyx4" path="res://assets/fonsmajas.png" id="1_r6hxj"]
+
+[node name="fonsmajas" type="Parallax2D"]
+scroll_scale = Vector2(0.2, 1)
+repeat_size = Vector2(1350, 0)
+repeat_times = 201691
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -4095
+position = Vector2(1376, -182)
+scale = Vector2(0.87625, 0.9011976)
+texture = ExtResource("1_r6hxj")
