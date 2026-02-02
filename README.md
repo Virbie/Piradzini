@@ -2,7 +2,7 @@
 Edgars Reichmanis-Norbuts, Rihards Raginskis-Repše, Bruno Kančs
 
 # Idejas apraksts
-  Origo, Maskačka, Centrāltirgus, Kojas  visām šīm vietām ir viena kopīga īpašība – pamatīgs pigoru apjoms un bagātīga kultūra, un šī kultūra ir neskarta zelta bedre, kas diemžēl nav pietiekami parādīta mūsdienu kultūrā piemēram filmās, seriālos, grāmatās un jā arī videospēlēs. Nu tad mums kopīgi radās doma – Kāpēc neapvienot šos Rīgas kultūras stūrakmeņus vienā programmēšanas projektā un šajā gadījumā videospēlē?
+	Origo, Maskačka, Centrāltirgus, Kojas  visām šīm vietām ir viena kopīga īpašība – pamatīgs pigoru apjoms un bagātīga kultūra, un šī kultūra ir neskarta zelta bedre, kas diemžēl nav pietiekami parādīta mūsdienu kultūrā piemēram filmās, seriālos, grāmatās un jā arī videospēlēs. Nu tad mums kopīgi radās doma – Kāpēc neapvienot šos Rīgas kultūras stūrakmeņus vienā programmēšanas projektā un šajā gadījumā videospēlē?
 	Un mēs izvēlējāmies to darīt, bet videospēle ir varen plašs virsraksts kurā var iekļaut neskaitāmus dažādus žanrus un veidus sākot ar 2D vienkāršotēm uz fizikas likumiem bāzētām spēlēm kā “Pong” vai “Tetris” un beidzot ar plašām 3D pasaulēm pildītām pat vis sīkākajām detaļām piemēram “Red Dead Redemption 2” vai “Grand Theft Auto 6”, tomēr mēs izvēlējāmies mēģināt izveidot ko kautkur pa vidu starp šiem ekstrēmiem, žanrs ko mēs izvēlējāmies pazīstams ar nosaukumu “Metroidvania” kas ir kā apvienojums starp “Metroid” un “Castlevania” videospēļu frančīzēm, citas iedvesmas iekļauj “Ori and the will of the wisps” un “Guacamelle”, tātad žānrs ir izvēlēts, bet tas vēl nav viss.
 	Izvēlējāmies Metroidvania žanru, jo tas ir salīdzinoši vienkāršs stils ko attēlot ņemot vērā to ka tas ir 2d telpā, kas samazina darba apjomu, un jo šāda tipa spēles parasti ir īsākas, kas samazina apjomu vēl nedaudz. Šāda tipa spēles parasti ir sadalītas dažādās “zonās”, kas atšķirās šķēršļu un pretinieku veidos un izskatos, mūsu spēlē izvēlētās zonas ir “Zemitāni”, “Origo/Centrālā stacija”, “Centrāltirgus”, “Maskačka”, “Ķīpsala/Kojas” kā redzams visas zonas ir kāda bēdīgi slavena vai vinkārši mums bieži apmeklēta vieta Rīgā, kas ļoti atbilst mūsu spēles mērķim. 
 	Zemitāni, tiek plānoti kā šī sākuma zona, jeb tā saucamais pamācības līmenis, te spēlētājs tiks iepazīstināts ar kontrolēm, un iespējām un robežām, kā arī iegūs sākuma prasmes cīnoties ar pirmajiem pretiniekiem – “Gopņikiem” un “Gopņikiem ar pudelēm”, kā arī ar pirmo Bosa cīņu pret “Krievu” pēc kuras tiks iegūts pirmais īpašais spēks, kas ir “sprintiņš”. Zemitāni būs arī sākuma punkts spēles stāstam, un ceļs lai nonāktu nākamajā zonā būs “Vivi” vilciens.
@@ -20,4 +20,47 @@ Projekts ir tēmēts mūsdienu jaunatnei, tas ir mūsu vienaudžiem, cilvēkiem,
 Projekts tiks veidots spēles dzinējā "Godot", izmantojot tā iebūveto valodu GD script, vajadzības gadījumā var izmantot citas valodas, kas ir piemērots šāda tipa/žanra spēlēm, atvieglojot gan veidotāju (mūsu), gan lietotāju pieredzi.
 
 # Piegādes formāts
-Šis projekts tiks ievietots videospēļu piegādes platformā "Steam" ar mērķi piegādāt to pēc iespējas plašākai auditorijai. Pēc nepieciešamības tiks izsniegti tās saucamās "atslēgas", lai piekļūtu projektam. 
+Šis projekts tiks ievietots videospēļu piegādes platformā "Steam" ar mērķi piegādāt to pēc iespējas plašākai auditorijai. Pēc nepieciešamības tiks izsniegti tās saucamās "atslēgas", lai piekļūtu projektam. Programmu ir paredzēts pasniegt kā lietotni, tā nebūs saderīga ar mobīlajiem lietotājiem.
+
+# Darba Plāns
+| Darba apraksts | Datums | Autors |
+| ----------- | ----------- | ----------- |
+| Izveidot pirmajam pretinieku tipam hitbox un roaming | 10.02.2026 | Bruno |
+| Salabot nēvēlamās spēlētaja sprita animācijas | 10.02.2026 | Rihards |
+| Uzmodelēt otro daudzstāvu māju un ieviest | 10.02.2026 | Edgars |
+| Apraksts | 17.02.2026 | Bruno |
+| Apraksts | 17.02.2026 | Rihards |
+| Apraksts | 17.02.2026 | Edgars |
+| Apraksts | 24.02.2026 | Bruno |
+| Apraksts | 24.02.2026 | Rihards |
+| Apraksts | 24.02.2026 | Edgars |
+| Apraksts | 03.03.2026 | Bruno |
+| Apraksts | 03.03.2026 | Rihards |
+| Apraksts | 03.03.2026 | Edgars |
+| Apraksts | 10.03.2026 | Bruno |
+| Apraksts | 10.03.2026 | Rihards |
+| Apraksts | 10.03.2026 | Edgars |
+| Apraksts | 17.03.2026 | Bruno |
+| Apraksts | 17.03.2026 | Rihards |
+| Apraksts | 17.03.2026 | Edgars |
+| Apraksts | 24.03.2026 | Bruno |
+| Apraksts | 24.03.2026 | Rihards |
+| Apraksts | 24.03.2026 | Edgars |
+| Apraksts | 31.03.2026 | Bruno |
+| Apraksts | 31.03.2026 | Rihards |
+| Apraksts | 31.03.2026 | Edgars |
+| Apraksts | 07.04.2026 | Bruno |
+| Apraksts | 07.04.2026 | Rihards |
+| Apraksts | 07.04.2026 | Edgars |
+| Apraksts | 14.04.2026 | Bruno |
+| Apraksts | 14.04.2026 | Rihards |
+| Apraksts | 14.04.2026 | Edgars |
+| Apraksts | 21.04.2026 | Bruno |
+| Apraksts | 21.04.2026 | Rihards |
+| Apraksts | 21.04.2026 | Edgars |
+| Apraksts | 28.04.2026 | Bruno |
+| Apraksts | 28.04.2026 | Rihards |
+| Apraksts | 28.04.2026 | Edgars |
+| Apraksts | 05.05.2026 | Bruno |
+| Apraksts | 05.05.2026 | Rihards |
+| Apraksts | 05.05.2026 | Edgars |
