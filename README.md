@@ -23,44 +23,18 @@ Projekts tiks veidots spēles dzinējā "Godot", izmantojot tā iebūveto valodu
 Šis projekts tiks ievietots videospēļu piegādes platformā "Steam" ar mērķi piegādāt to pēc iespējas plašākai auditorijai. Pēc nepieciešamības tiks izsniegti tās saucamās "atslēgas", lai piekļūtu projektam. Programmu ir paredzēts pasniegt kā lietotni, tā nebūs saderīga ar mobīlajiem lietotājiem.
 
 # Darba Plāns
-| Darba apraksts | Datums | Autors |
+| Datums | Edgars - Darba apraksts | Rihards - Darba apraksts | Bruno - Darba apraksts |
 | ----------- | ----------- | ----------- |
-| Izveidot pirmajam pretinieku tipam hitbox un roaming | 10.02.2026 | Bruno |
-| Salabot nēvēlamās spēlētaja sprita animācijas | 10.02.2026 | Rihards |
-| Uzmodelēt otro daudzstāvu māju un ieviest | 10.02.2026 | Edgars |
-| Apraksts | 17.02.2026 | Bruno |
-| Apraksts | 17.02.2026 | Rihards |
-| Apraksts | 17.02.2026 | Edgars |
-| Apraksts | 24.02.2026 | Bruno |
-| Apraksts | 24.02.2026 | Rihards |
-| Apraksts | 24.02.2026 | Edgars |
-| Apraksts | 03.03.2026 | Bruno |
-| Apraksts | 03.03.2026 | Rihards |
-| Apraksts | 03.03.2026 | Edgars |
-| Apraksts | 10.03.2026 | Bruno |
-| Apraksts | 10.03.2026 | Rihards |
-| Apraksts | 10.03.2026 | Edgars |
-| Apraksts | 17.03.2026 | Bruno |
-| Apraksts | 17.03.2026 | Rihards |
-| Apraksts | 17.03.2026 | Edgars |
-| Apraksts | 24.03.2026 | Bruno |
-| Apraksts | 24.03.2026 | Rihards |
-| Apraksts | 24.03.2026 | Edgars |
-| Apraksts | 31.03.2026 | Bruno |
-| Apraksts | 31.03.2026 | Rihards |
-| Apraksts | 31.03.2026 | Edgars |
-| Apraksts | 07.04.2026 | Bruno |
-| Apraksts | 07.04.2026 | Rihards |
-| Apraksts | 07.04.2026 | Edgars |
-| Apraksts | 14.04.2026 | Bruno |
-| Apraksts | 14.04.2026 | Rihards |
-| Apraksts | 14.04.2026 | Edgars |
-| Apraksts | 21.04.2026 | Bruno |
-| Apraksts | 21.04.2026 | Rihards |
-| Apraksts | 21.04.2026 | Edgars |
-| Apraksts | 28.04.2026 | Bruno |
-| Apraksts | 28.04.2026 | Rihards |
-| Apraksts | 28.04.2026 | Edgars |
-| Apraksts | 05.05.2026 | Bruno |
-| Apraksts | 05.05.2026 | Rihards |
-| Apraksts | 05.05.2026 | Edgars |
+| 10.02.2026 | Uzmodelēt otro daudzstāvu māju un ieviest | Salabot nēvēlamās spēlētaja sprita animācijas | Izveidot pirmajam pretinieku tipam hitbox un roaming | 
+| 17.02.2026 | Apraksts | Apraksts | Apraksts |
+| 24.02.2026 | Apraksts | Apraksts | Apraksts |
+| 03.03.2026 | Apraksts | Apraksts | Apraksts |
+| 10.03.2026 | Apraksts | Apraksts | Apraksts |
+| 17.03.2026 | Apraksts | Apraksts | Apraksts |
+| 24.03.2026 | Apraksts | Apraksts | Apraksts |
+| 31.03.2026 | Apraksts | Apraksts | Apraksts |
+| 07.04.2026 | Apraksts | Apraksts | Apraksts |
+| 14.04.2026 | Apraksts | Apraksts | Apraksts |
+| 21.04.2026 | Apraksts | Apraksts | Apraksts |
+| 28.04.2026 | Apraksts | Apraksts | Apraksts |
+| 05.05.2026 | Apraksts | Apraksts | Apraksts |
