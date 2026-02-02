@@ -25,19 +25,19 @@ Projekts tiks veidots spēles dzinējā "Godot", izmantojot tā iebūveto valodu
 # Darba Plāns
 | Datums | Edgars - Darba apraksts | Rihards - Darba apraksts | Bruno - Darba apraksts |
 | ----------- | ----------- | ----------- | ----------- | 
-| 10.02.2026 | Uzmodelēt otro daudzstāvu māju un ieviest | Salabot nēvēlamās spēlētaja sprita animācijas | Izveidot pirmajam pretinieku tipam hitbox un roaming | 
-| 17.02.2026 | Apraksts | Apraksts | Apraksts |
-| 24.02.2026 | Apraksts | Apraksts | Apraksts |
-| 03.03.2026 | Apraksts | Apraksts | Apraksts |
-| 10.03.2026 | Apraksts | Apraksts | Apraksts |
-| 17.03.2026 | Apraksts | Apraksts | Apraksts |
-| 24.03.2026 | Apraksts | Apraksts | Apraksts |
-| 31.03.2026 | Apraksts | Apraksts | Apraksts |
-| 07.04.2026 | Apraksts | Apraksts | Apraksts |
-| 14.04.2026 | Apraksts | Apraksts | Apraksts |
-| 21.04.2026 | Apraksts | Apraksts | Apraksts |
-| 28.04.2026 | Apraksts | Apraksts | Apraksts |
-| 05.05.2026 | Apraksts | Apraksts | Apraksts |
+| 10.02.2026 | Izveidot zemitānu 1. daudzzīvokļu māju, un pagalmu | Salabot nēvēlamās spēlētaja sprita animācijas | Izveidot pirmajam pretinieku tipam hitbox un roaming | 
+| 17.02.2026 | Pilnveidot fonu, pievienot miglas efektu, izveidot UI | Apraksts | Apraksts |
+| 24.02.2026 | Izveidot zemitānus līdz stacijai | Apraksts | Apraksts |
+| 03.03.2026 | Pilnveidot zemitānus izveidot animācijas | Apraksts | Apraksts |
+| 10.03.2026 | izveidot animācijas zemitānu pretiniekiem kā arī spēlētājam un UI elementiem | Apraksts | Apraksts |
+| 17.03.2026 | izveidot Origo līmeņa uzmetumu un pretiniekus | Apraksts | Apraksts |
+| 24.03.2026 | pilnveidot origo līmeni un pretinieku animācijas | Apraksts | Apraksts |
+| 31.03.2026 | izveidot centrāltirgus līmeni un pretiniekus | Apraksts | Apraksts |
+| 07.04.2026 | pilnveidot centrāltirgu un pretinieku animācijas | Apraksts | Apraksts |
+| 14.04.2026 | izveidot pazemes zonu | Apraksts | Apraksts |
+| 21.04.2026 | izveidot veikala UI, animācijas un spēlētāja animācijas jauniem atribūtiem | Apraksts | Apraksts |
+| 28.04.2026 | izveidot ēnas, ūdeni un citus shaders kā arī statisko objektu animācijas | Apraksts | Apraksts |
+| 05.05.2026 | testēt esošo projektu un mainīt kā arī uzlabot mākslas stilu kur nepieciešams| Apraksts | Apraksts |
 
 # UML Sekvences Diagramma - karte, pārvietošanās
 ![UML Sekvences Diagramma - karte, pārvietošanās](Sekvences_diagramma.png)
