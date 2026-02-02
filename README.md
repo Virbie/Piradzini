@@ -24,7 +24,7 @@ Projekts tiks veidots spēles dzinējā "Godot", izmantojot tā iebūveto valodu
 
 # Darba Plāns
 | Datums | Edgars - Darba apraksts | Rihards - Darba apraksts | Bruno - Darba apraksts |
-| ----------- | ----------- | ----------- |
+| ----------- | ----------- | ----------- | ----------- | 
 | 10.02.2026 | Uzmodelēt otro daudzstāvu māju un ieviest | Salabot nēvēlamās spēlētaja sprita animācijas | Izveidot pirmajam pretinieku tipam hitbox un roaming | 
 | 17.02.2026 | Apraksts | Apraksts | Apraksts |
 | 24.02.2026 | Apraksts | Apraksts | Apraksts |
