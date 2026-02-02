@@ -38,3 +38,6 @@ Projekts tiks veidots spēles dzinējā "Godot", izmantojot tā iebūveto valodu
 | 21.04.2026 | Apraksts | Apraksts | Apraksts |
 | 28.04.2026 | Apraksts | Apraksts | Apraksts |
 | 05.05.2026 | Apraksts | Apraksts | Apraksts |
+
+# UML Sekvences Diagramma - karte, pārvietošanās
+![UML Sekvences Diagramma - karte, pārvietošanās](Sekvences_diagramma.png)
