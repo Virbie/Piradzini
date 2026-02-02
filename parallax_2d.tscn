@@ -6,6 +6,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cbjfi"]
 shader = ExtResource("1_36wu7")
 shader_parameter/blur = 2.000000095
+shader_parameter/darken_strength = 0.0
+shader_parameter/saturation_strength = 0.0
 
 [node name="debesis" type="Parallax2D"]
 scroll_scale = Vector2(0, 0)

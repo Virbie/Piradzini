@@ -6,6 +6,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xpmkj"]
 shader = ExtResource("1_cvx1s")
 shader_parameter/blur = 1.5
+shader_parameter/darken_strength = 0.50000002375
+shader_parameter/saturation_strength = 0.50000002375
 
 [node name="fonsmajas" type="Parallax2D"]
 scroll_scale = Vector2(0.2, 1)

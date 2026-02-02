@@ -6,6 +6,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ypeck"]
 shader = ExtResource("1_oyt5l")
 shader_parameter/blur = 0.4070000193325
+shader_parameter/darken_strength = 0.0
+shader_parameter/saturation_strength = 0.0
 
 [node name="krumi" type="Parallax2D"]
 scroll_scale = Vector2(0.9, 1)

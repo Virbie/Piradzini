@@ -6,6 +6,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qiuck"]
 shader = ExtResource("1_pfbfe")
 shader_parameter/blur = 0.8490000403275
+shader_parameter/darken_strength = 0.0
+shader_parameter/saturation_strength = 0.0
 
 [node name="majaskoki" type="Parallax2D"]
 
