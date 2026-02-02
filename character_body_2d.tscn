@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dbdy8h8irw1g7" path="res://assets/piradzins.png" id="2_ij6vw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ij6vw"]
-radius = 15.0
-height = 54.0
+radius = 11.0
+height = 52.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ij6vw"]
 atlas = ExtResource("2_ij6vw")
@@ -280,7 +280,6 @@ limit_left = -9999999
 limit_right = 10000001
 limit_bottom = -20
 limit_smoothed = true
-position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-12, -17)

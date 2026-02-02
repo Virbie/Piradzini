@@ -1,11 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkkxtlnnx7b7g"]
+[gd_scene load_steps=4 format=3 uid="uid://dkkxtlnnx7b7g"]
 
+[ext_resource type="Shader" uid="uid://dqu72hc3h6cls" path="res://blur.gdshader" id="1_36wu7"]
 [ext_resource type="Texture2D" uid="uid://cbrpc7fnf0nlc" path="res://assets/sky.png" id="1_l70dm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cbjfi"]
+shader = ExtResource("1_36wu7")
+shader_parameter/blur = 2.000000095
 
 [node name="debesis" type="Parallax2D"]
 scroll_scale = Vector2(0, 0)
 
 [node name="debesis" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_cbjfi")
 position = Vector2(708.00006, 1233)
 scale = Vector2(0.8764023, 0.9026945)
 texture = ExtResource("1_l70dm")

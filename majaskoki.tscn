@@ -1,11 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnb0f15m0uk6d"]
+[gd_scene load_steps=4 format=3 uid="uid://cnb0f15m0uk6d"]
 
 [ext_resource type="Texture2D" uid="uid://ciolj01w83ah5" path="res://assets/kokividus.png" id="1_macna"]
+[ext_resource type="Shader" uid="uid://dqu72hc3h6cls" path="res://blur.gdshader" id="1_pfbfe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qiuck"]
+shader = ExtResource("1_pfbfe")
+shader_parameter/blur = 0.8490000403275
 
 [node name="majaskoki" type="Parallax2D"]
-scroll_scale = Vector2(0.7, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -4094
+material = SubResource("ShaderMaterial_qiuck")
 position = Vector2(2232, -498)
 texture = ExtResource("1_macna")
