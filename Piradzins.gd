@@ -64,12 +64,16 @@ func _physics_process(delta):
 # ==============================
 
 func read_input():
+	@warning_ignore("narrowing_conversion")
 	input_dir = Input.get_axis("ui_left", "ui_right")
 	if input_dir != 0:
 		facing = sign(input_dir)
 
 	if Input.is_action_just_pressed("ui_accept"):
 		jump_buffer_timer = jump_buffer
+
+
+
 
 # ==============================
 # HORIZONTAL MOVEMENT
@@ -110,16 +114,17 @@ func handle_gravity(delta):
 # ==============================
 
 func handle_jump():
-	jump_buffer_timer -= get_physics_process_delta_time()
+	jump_buffer_timer = max(jump_buffer_timer - get_physics_process_delta_time(), 0)
 
 	if jump_buffer_timer > 0 and coyote_timer > 0:
 		velocity.y = -jump_force
 		jump_buffer_timer = 0
 		coyote_timer = 0
 
-	# Variable jump height
 	if Input.is_action_just_released("ui_accept") and velocity.y < 0:
 		velocity.y *= jump_cut
+
+
 
 # ==============================
 # DASH (ORI-STYLE AIR DASH)
@@ -144,7 +149,7 @@ func handle_dash(delta):
 # WALL SLIDE + WALL JUMP
 # ==============================
 
-func handle_wall_slide(delta):
+func handle_wall_slide(_delta):
 	if is_on_wall() and not is_on_floor() and velocity.y > 0:
 		velocity.y = min(velocity.y, wall_slide_speed)
 
@@ -156,25 +161,33 @@ func handle_timers(delta):
 	coyote_timer = max(coyote_timer - delta, 0)
 	jump_buffer_timer = max(jump_buffer_timer - delta, 0)
 	
+var anim_dir := 1  # NEW: tracks which direction the animation is currently facing
+
 func handle_animations():
-	var is_moving: bool = abs(velocity.x) > 10 and is_on_floor()
-	var dir := "right" if facing == 1 else "left"
+   
+	var move_threshold := 10.0
+	var is_moving: bool = abs(velocity.x) > move_threshold and is_on_floor()
+	
 
-	# START RUN
+	var dir_str := "right" if facing == 1 else "left"
+
 	if is_moving and not was_moving:
-		anim.play("sak_skriet_" + dir)
+		anim.play("sak_skriet_" + dir_str)
+		anim_dir = facing  # NEW: store current facing in anim_dir
 
-	# RUN LOOP
 	elif is_moving:
-		if not anim.animation.begins_with("skrien_"):
-			anim.play("skrien_" + dir)
+		# NEW: Only change animation if direction changed OR animation is not already running
+		if anim_dir != facing or not anim.animation.begins_with("skrien_"):
+			anim.play("skrien_" + dir_str)
+			anim_dir = facing
 
-	# STOP RUN
 	elif was_moving and not is_moving:
-		anim.play("skrien_beidz_" + dir)
+		anim.play("skrien_beidz_" + dir_str)
+		anim_dir = facing
 
-	# IDLE (this is the fix)
 	elif not is_moving and not anim.animation.begins_with("idle_"):
-		anim.play("idle_" + dir)
+		anim.play("idle_" + dir_str)
+		anim_dir = facing
 
+	# Update previous movement state
 	was_moving = is_moving

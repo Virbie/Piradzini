@@ -1,6 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://cwl3ceqo7qaa5"]
+[gd_scene load_steps=37 format=3 uid="uid://cwl3ceqo7qaa5"]
 
 [ext_resource type="Script" uid="uid://dt4l8p6wp5ph1" path="res://Piradzins.gd" id="1_ij6vw"]
+[ext_resource type="Script" uid="uid://dnr8qhsgrtdn5" path="res://camera.gd" id="2_ghijl"]
 [ext_resource type="Texture2D" uid="uid://dbdy8h8irw1g7" path="res://assets/piradzins.png" id="2_ij6vw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ij6vw"]
@@ -280,6 +281,7 @@ limit_left = -9999999
 limit_right = 10000001
 limit_bottom = -20
 limit_smoothed = true
+script = ExtResource("2_ghijl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-12, -17)

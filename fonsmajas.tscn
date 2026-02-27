@@ -1,22 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0t3oyrml524d"]
+[gd_scene load_steps=2 format=3 uid="uid://c0t3oyrml524d"]
 
-[ext_resource type="Shader" uid="uid://dqu72hc3h6cls" path="res://blur.gdshader" id="1_cvx1s"]
-[ext_resource type="Texture2D" uid="uid://sok0df2tck3a" path="res://assets/daudzivoklene.png" id="2_cvx1s"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xpmkj"]
-shader = ExtResource("1_cvx1s")
-shader_parameter/blur = 1.5
-shader_parameter/darken_strength = 0.50000002375
-shader_parameter/saturation_strength = 0.50000002375
+[ext_resource type="Texture2D" uid="uid://fsdwk4yslyry" path="res://assets/daudzivoklene.png" id="1_r6hxj"]
 
 [node name="fonsmajas" type="Parallax2D"]
 scroll_scale = Vector2(0.2, 1)
-repeat_size = Vector2(500, 0)
+repeat_size = Vector2(1000, 0)
 repeat_times = 201691
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -4095
-material = SubResource("ShaderMaterial_xpmkj")
-position = Vector2(1113.625, -41.06138)
-scale = Vector2(0.43895826, 0.4537734)
-texture = ExtResource("2_cvx1s")
+position = Vector2(1359, -53.999985)
+scale = Vector2(0.87625, 0.9011976)
+texture = ExtResource("1_r6hxj")
