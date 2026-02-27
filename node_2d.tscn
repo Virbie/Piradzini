@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://ch73di6uysh7m"]
+[gd_scene load_steps=43 format=4 uid="uid://ch73di6uysh7m"]
 
 [ext_resource type="PackedScene" uid="uid://cwl3ceqo7qaa5" path="res://character_body_2d.tscn" id="1_0e48y"]
 [ext_resource type="PackedScene" uid="uid://dkkxtlnnx7b7g" path="res://parallax_2d.tscn" id="1_epypp"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://cawqys8suxqxp" path="res://fonstalais.gdshader" id="4_ta5nu"]
 [ext_resource type="Texture2D" uid="uid://dxvaux07ewxa6" path="res://assets/gopniks/gopniks-02.png" id="5_rj586"]
 [ext_resource type="Shader" uid="uid://b6eogmr86x6x6" path="res://fonstuvais.gdshader" id="6_0h7mo"]
+[ext_resource type="Texture2D" uid="uid://cidnbqc46iill" path="res://assets/GUI_tileset.png" id="6_2nhjh"]
 [ext_resource type="Texture2D" uid="uid://3c507kluskks" path="res://assets/gopniks/gopniks-03.png" id="6_4d7sh"]
 [ext_resource type="Shader" uid="uid://dr1refurikisn" path="res://fonstalaisvidus.gdshader" id="6_d2bti"]
 [ext_resource type="Script" uid="uid://dhx6l68b77f5k" path="res://fons_tālais.gd" id="6_k73cj"]
@@ -21,6 +22,7 @@
 [ext_resource type="Script" uid="uid://i3oa3kxrafmn" path="res://fonsvidus.gd" id="10_fs4d3"]
 [ext_resource type="Shader" uid="uid://c81yiccu5yq0y" path="res://bikitaizspeletaja.gdshader" id="10_k73cj"]
 [ext_resource type="Script" uid="uid://qmrb0ru0knf8" path="res://fons_tuvākais.gd" id="12_7vxoj"]
+[ext_resource type="Script" uid="uid://b5qaolphv1r2w" path="res://HealthBar.gd" id="23_bjha6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_flf07"]
 shader = ExtResource("4_ta5nu")
@@ -4465,11 +4467,73 @@ texture = ExtResource("3_ir8iy")
 4:0/size_in_atlas = Vector2i(4, 4)
 4:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1fr6y"]
+texture = ExtResource("6_2nhjh")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_0hol4"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_epypp")
 sources/2 = SubResource("TileSetAtlasSource_hqns4")
 sources/1 = SubResource("TileSetAtlasSource_fs4d3")
+sources/3 = SubResource("TileSetAtlasSource_1fr6y")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ta5nu"]
 shader = ExtResource("6_d2bti")
@@ -4631,7 +4695,7 @@ script = ExtResource("12_7vxoj")
 
 [node name="statiskais" type="Node" parent="Pasaule"]
 
-[node name="Layer3" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="-4" type="TileMapLayer" parent="Pasaule/statiskais"]
 z_index = -750
 material = SubResource("ShaderMaterial_2nhjh")
 use_parent_material = true
@@ -4640,7 +4704,7 @@ tile_map_data = PackedByteArray("AABGABQAAAAcAAwAAABGABMAAAAbAAsAAABFABMAAAAbAAs
 tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 
-[node name="Layer0" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="-3" type="TileMapLayer" parent="Pasaule/statiskais"]
 z_index = -500
 material = SubResource("ShaderMaterial_e8dv2")
 use_parent_material = true
@@ -4649,7 +4713,7 @@ tile_map_data = PackedByteArray("AAAIAAEAAAAiAAsAAAAIAAIAAAAiAAsAAAAIAAMAAAAiAAs
 tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 
-[node name="Layer7" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="-2" type="TileMapLayer" parent="Pasaule/statiskais"]
 z_index = -500
 material = SubResource("ShaderMaterial_ei405")
 use_parent_material = true
@@ -4658,7 +4722,7 @@ tile_map_data = PackedByteArray("AAASAPv/AABBABIAAAASAPz/AABBABMAAAASAP3/AABBABQ
 tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 
-[node name="Layer1" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="-1" type="TileMapLayer" parent="Pasaule/statiskais"]
 z_index = -100
 material = SubResource("ShaderMaterial_7vxoj")
 use_parent_material = true
@@ -4667,7 +4731,7 @@ tile_map_data = PackedByteArray("AABzABAAAAAAAAkAAACOABAAAAAAAAkAAACZABAAAAAAAAk
 tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 
-[node name="Layer6" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="0" type="TileMapLayer" parent="Pasaule/statiskais"]
 z_index = 100
 use_parent_material = true
 position = Vector2(-126, -478)
@@ -4675,7 +4739,7 @@ tile_map_data = PackedByteArray("AABCAAkAAAAvAAYAAABCAAoAAAAvAAcAAABCAAsAAAAvAAg
 tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 
-[node name="Layer5" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="1" type="TileMapLayer" parent="Pasaule/statiskais"]
 z_index = 101
 material = SubResource("ShaderMaterial_k73cj")
 use_parent_material = true
@@ -4684,7 +4748,7 @@ tile_map_data = PackedByteArray("AAA9AAgAAAA0AAwAAAA9AAkAAAA0AA0AAAA9AAoAAAA0AA4
 tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 
-[node name="Layer4" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="2" type="TileMapLayer" parent="Pasaule/statiskais"]
 z_index = 100
 material = SubResource("ShaderMaterial_rjqkl")
 use_parent_material = true
@@ -4693,7 +4757,7 @@ tile_map_data = PackedByteArray("AABBABEAAAAyAAwAAABBABIAAAAyAA0AAABCABIAAAAyAAw
 tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 
-[node name="Layer2" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="3" type="TileMapLayer" parent="Pasaule/statiskais"]
 z_index = 102
 material = SubResource("ShaderMaterial_fs4d3")
 use_parent_material = true
@@ -4704,20 +4768,20 @@ rendering_quadrant_size = 32
 
 [node name="hitboksi" type="Node" parent="Pasaule/statiskais"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Pasaule/statiskais/hitboksi"]
+[node name="Zilais moskvičš zemitānos" type="StaticBody2D" parent="Pasaule/statiskais/hitboksi"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pasaule/statiskais/hitboksi/StaticBody2D"]
+[node name="Poligons saskarnei" type="CollisionPolygon2D" parent="Pasaule/statiskais/hitboksi/Zilais moskvičš zemitānos"]
 polygon = PackedVector2Array(1450, -124, 1450, -143, 1454, -146, 1456, -151, 1457, -163, 1460, -166, 1513, -166, 1516, -163, 1518, -150, 1519, -146, 1523, -143, 1523, -127, 1525, -125, 1525, -123, 1523, -121, 1522, -113, 1520, -111, 1514, -111, 1513, -114, 1513, -117, 1460, -117, 1460, -113, 1459, -111, 1453, -111, 1452, -114, 1452, -121, 1449, -122, 1447, -123, 1448, -125, 1450, -126)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Pasaule/statiskais/hitboksi"]
+[node name="Beha zemitānos" type="StaticBody2D" parent="Pasaule/statiskais/hitboksi"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pasaule/statiskais/hitboksi/StaticBody2D2"]
+[node name="Poligons saskarnei" type="CollisionPolygon2D" parent="Pasaule/statiskais/hitboksi/Beha zemitānos"]
 position = Vector2(1647, 0)
 polygon = PackedVector2Array(1447, -121, 1448, -123, 1449, -123, 1449, -128, 1450, -135, 1452, -137, 1454, -137, 1459, -146, 1464, -155, 1511, -155, 1515, -149, 1522, -137, 1524, -136, 1525, -135, 1528, -120, 1522, -117, 1522, -112, 1520, -111, 1514, -111, 1511, -112, 1511, -117, 1464, -117, 1463, -111, 1464, -117, 1463, -111, 1459, -111, 1454, -111, 1453, -112, 1453, -117, 1452, -117, 1450, -118, 1447, -119)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Pasaule/statiskais/hitboksi"]
+[node name="Rimi busiņš zemitānos" type="StaticBody2D" parent="Pasaule/statiskais/hitboksi"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pasaule/statiskais/hitboksi/StaticBody2D3"]
+[node name="Poligons saskarnei" type="CollisionPolygon2D" parent="Pasaule/statiskais/hitboksi/Rimi busiņš zemitānos"]
 polygon = PackedVector2Array(3367, -222, 3453, -222, 3455, -221, 3456, -220, 3457, -219, 3458, -217, 3362, -217, 3363, -219, 3364, -220, 3365, -221)
 one_way_collision = true
 
@@ -4764,7 +4828,7 @@ position = Vector2(2958, -160)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Pasaule/efekti"]
 environment = SubResource("Environment_x0ka3")
 
-[node name="ColorRect" type="ColorRect" parent="Pasaule"]
+[node name="vinjete" type="ColorRect" parent="Pasaule/efekti"]
 z_index = 4096
 material = SubResource("ShaderMaterial_bjha6")
 anchors_preset = 15
@@ -4779,7 +4843,7 @@ grow_vertical = 2
 
 [node name="Spēlētājs" type="Node" parent="."]
 
-[node name="CharacterBody2D" parent="Spēlētājs" instance=ExtResource("1_0e48y")]
+[node name="Spēlētājs" parent="Spēlētājs" instance=ExtResource("1_0e48y")]
 z_index = 1
 position = Vector2(629, -458)
 
@@ -4795,4 +4859,55 @@ sprite_frames = SubResource("SpriteFrames_hqns4")
 animation = &"idle"
 frame_progress = 0.40016818
 
-[node name="UI" type="Node" parent="."]
+[node name="LS" type="Node" parent="."]
+
+[node name="Lietotāja Saskarne" type="CanvasLayer" parent="LS"]
+
+[node name="HUD" type="Control" parent="LS/Lietotāja Saskarne"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dzīvības" type="HBoxContainer" parent="LS/Lietotāja Saskarne/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.2
+anchor_bottom = 0.02
+offset_right = 136.0
+offset_bottom = 12.0
+scale = Vector2(6, 6)
+script = ExtResource("23_bjha6")
+
+[node name="Enerģija" type="HBoxContainer" parent="LS/Lietotāja Saskarne/HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Depozīts" type="HBoxContainer" parent="LS/Lietotāja Saskarne/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.66
+anchor_right = 0.5
+anchor_bottom = 0.66
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LS/Lietotāja Saskarne/HUD"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="LS/Lietotāja Saskarne/HUD"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
