@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgj6ey3v45ny3"]
+
+[ext_resource type="Texture2D" uid="uid://djls4dm7d3i2y" path="res://assets/durvis.png" id="1_p0g8l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8dv2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p0g8l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+
+[node name="durvis" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e8dv2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
