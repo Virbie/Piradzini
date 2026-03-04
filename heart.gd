@@ -52,7 +52,6 @@ func play_heal_sequence() -> void:
 
 	busy = false
 
-
 func play_wave() -> void:
 	if busy:
 		return
