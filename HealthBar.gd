@@ -23,7 +23,13 @@ func _process(delta: float) -> void:
 			wave_timer = 0.0
 			start_wave()
 
+func _input(event):
+	if event.is_action_pressed("damage_test"):
+		call_deferred("take_damage", 1)
 
+	if event.is_action_pressed("heal_test"):
+		call_deferred("heal", 1)
+		
 func _create_hearts() -> void:
 	for i in range(max_hp):
 		var heart = heart_scene.instantiate()
@@ -47,7 +53,7 @@ func take_damage(amount: int) -> void:
 
 	var target_hp = max(current_hp - amount, 0)
 	for i in range(target_hp, current_hp):
-		await hearts[i].play_damage()
+		await hearts[i].play_damage()  # await works properly now
 
 	current_hp = target_hp
 	_update_hearts()
