@@ -29,6 +29,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Pīrādziņu_Piedzīvojumi"
 
+[global_group]
+
+player=""
+
 [gui]
 
 theme/custom_font="uid://dt5v3ten7d75j"

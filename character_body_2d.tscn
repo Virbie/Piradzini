@@ -271,7 +271,7 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Main_player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(-1, -1)
 script = ExtResource("1_ij6vw")
 
@@ -290,4 +290,4 @@ shape = SubResource("CapsuleShape2D_ij6vw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-12, -21)
 sprite_frames = SubResource("SpriteFrames_dd465")
-animation = &"skrien_beidz_left"
+animation = &"skrien_beidz_right"
