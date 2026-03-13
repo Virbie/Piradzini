@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1qxbwfa62ohd"]
+
+[ext_resource type="Script" uid="uid://ddh2gcc6wwkn1" path="res://debug_console.gd" id="1_gpuxc"]
+
+[node name="DebugConsole" type="CanvasLayer"]
+script = ExtResource("1_gpuxc")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 2107.0
+offset_top = 1369.0
+offset_right = 2159.0
+offset_bottom = 1397.0
+scale = Vector2(3.3277304, 2.7330132)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_top = -3.9999995
+offset_right = 52.0
+offset_bottom = 28.0
+scale = Vector2(0.99259716, 1.1051278)
+
+[node name="ConsoleOutput" type="RichTextLabel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ConsoleInput" type="LineEdit" parent="Panel/VBoxContainer"]
+layout_mode = 2

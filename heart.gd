@@ -18,13 +18,13 @@ func play_damage() -> void:
 	busy = true
 
 	anim_sprite.play("Hit1")
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.4).timeout
 
 	anim_sprite.play("Hit2")
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.4).timeout
 
 	anim_sprite.play("Hit3")
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.4).timeout
 
 	anim_sprite.play("SharedSprite")
 	busy = false
@@ -35,16 +35,16 @@ func play_heal_sequence() -> void:
 	busy = true
 
 	anim_sprite.play("Heal1")
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.4).timeout
 
 	anim_sprite.play("Heal2")
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.4).timeout
 
 	anim_sprite.play("Heal3")
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.4).timeout
 
 	anim_sprite.play("Heal4")
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.4).timeout
 
 	anim_sprite.play("Heal5")
 	busy = false

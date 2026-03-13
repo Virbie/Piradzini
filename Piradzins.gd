@@ -30,8 +30,8 @@ func reset_zoom(speed: float = 2.0):
 @export var jump_buffer := 0.12
 
 @export var dash_speed := 520.0
-@export var dash_time := 0.18
-@export var dash_cooldown := 0.75
+@export var dash_time := 0.17
+@export var dash_cooldown := 0.50
 
 @export var wall_slide_speed := 260.0
 @export var wall_jump_force := Vector2(450, 500)
