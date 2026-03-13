@@ -138,7 +138,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_byer4")
 }],
-"loop": true,
+"loop": false,
 "name": &"Wave",
 "speed": 5.0
 }]

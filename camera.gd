@@ -1,9 +1,12 @@
 extends Camera2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body if needed
+var target_zoom: Vector2 = Vector2(3, 3)
+var zoom_speed: float = 2.0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func set_target_zoom(new_zoom: Vector2, speed: float = 2.0) -> void:
+	target_zoom = new_zoom
+	zoom_speed = speed
+
 func _process(delta: float) -> void:
-	pass # Replace with per-frame logic if needed
+	# Smoothly interpolate camera zoom using lerp
+	zoom = zoom.lerp(target_zoom, zoom_speed * delta)
