@@ -84,6 +84,10 @@ func _ready() -> void:
 	saved_collision_layer = collision_layer
 	saved_collision_mask = collision_mask
 
+	Inventory.add_item({
+			"name": "Kvass",
+			"icon": preload("res://assets/items/Kvass.png")
+		})
 
 # ==============================
 # GODOT LOOP

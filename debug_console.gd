@@ -9,6 +9,7 @@ extends CanvasLayer
 var console_open := false
 var enabled := OS.is_debug_build()
 var debug_active := false
+var has_shown_console_hint := false
 
 func _ready():
 	add_to_group("console")
@@ -23,10 +24,30 @@ func console_print(text: String):
 	output.append_text("\n" + text)
 	output.scroll_to_line(max(output.get_line_count() - 1, 0))
 
+func show_help():
+	console_print("Available commands:")
+	console_print("cmds - Show this help list")
+	console_print("heal <amount> - Heal the player")
+	console_print("damage <amount> - Damage the player")
+	console_print("addheart - Add 1 max HP")
+	console_print("removeheart - Remove 1 max HP")
+	console_print("hp - Refresh/update heart display")
+	console_print("fly on - Enable fly mode")
+	console_print("fly off - Disable fly mode")
+	console_print("noclip on - Enable noclip")
+	console_print("noclip off - Disable noclip")
+	console_print("save - Save the game")
+	console_print("load - Load the game")
+	console_print("deletesave - Delete save data")
+
 func _input(event):
 	if event.is_action_pressed("toggle_console"):
 		console_open = !console_open
 		visible = console_open
+
+		if console_open and not has_shown_console_hint:
+			console_print('Type "cmds" for help.')
+			has_shown_console_hint = true
 
 		if not console_open:
 			input.release_focus()
@@ -79,10 +100,14 @@ func _on_command_entered(text):
 	var command = args[0].to_lower()
 
 	match command:
+		"cmds":
+			show_help()
+
 		"heal":
 			if args.size() > 1:
 				var amount = int(args[1])
 				get_tree().call_group("Debug_manager", "heal", amount)
+				console_print("Healed " + str(amount))
 			else:
 				console_print("Usage: heal <amount>")
 
@@ -90,17 +115,21 @@ func _on_command_entered(text):
 			if args.size() > 1:
 				var amount = int(args[1])
 				get_tree().call_group("Debug_manager", "take_damage", amount)
+				console_print("Damaged " + str(amount))
 			else:
 				console_print("Usage: damage <amount>")
 
 		"addheart":
 			get_tree().call_group("Debug_manager", "add_max_hp", 1)
+			console_print("Added 1 max HP")
 
 		"removeheart":
 			get_tree().call_group("Debug_manager", "remove_max_hp", 1)
+			console_print("Removed 1 max HP")
 
 		"hp":
 			get_tree().call_group("Debug_manager", "_update_hearts")
+			console_print("HP display updated")
 
 		"fly":
 			if args.size() < 2:
@@ -138,11 +167,10 @@ func _on_command_entered(text):
 				else:
 					console_print("Usage: noclip on / noclip off")
 
-
-# ==============================
-# Lai izveidotu saglabajamus datus nepieciesams pievienot to "saveable" grupai
-# un pievienot funkcijas, kas atrodamas piradzins.gd uc.
-# ==============================
+		# ==============================
+		# Lai izveidotu saglabajamus datus nepieciesams pievienot to "saveable" grupai
+		# un pievienot funkcijas, kas atrodamas piradzins.gd uc.
+		# ==============================
 		"save":
 			SaveManager.collect_save_data()
 			SaveManager.save_game()
@@ -158,7 +186,7 @@ func _on_command_entered(text):
 			console_print("Save deleted")
 
 		_:
-			console_print("Unknown command")
+			console_print("Unknown command. Type \"cmds\" for help.")
 
 	input.clear()
 	input.release_focus()

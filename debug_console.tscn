@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1qxbwfa62ohd"]
+[gd_scene load_steps=5 format=3 uid="uid://d1qxbwfa62ohd"]
 
 [ext_resource type="Script" uid="uid://ddh2gcc6wwkn1" path="res://debug_console.gd" id="1_gpuxc"]
 
@@ -11,6 +11,9 @@ cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpuxc"]
+bg_color = Color(0.3534348, 0.3534348, 0.3534348, 0.58431375)
 
 [sub_resource type="FontFile" id="FontFile_r56kf"]
 subpixel_positioning = 0
@@ -96,33 +99,84 @@ cache/0/50/0/descent = 0.0
 cache/0/50/0/underline_position = 0.0
 cache/0/50/0/underline_thickness = 0.0
 cache/0/50/0/scale = 1.0
+cache/0/49/0/ascent = 0.0
+cache/0/49/0/descent = 0.0
+cache/0/49/0/underline_position = 0.0
+cache/0/49/0/underline_thickness = 0.0
+cache/0/49/0/scale = 1.0
+cache/0/48/0/ascent = 0.0
+cache/0/48/0/descent = 0.0
+cache/0/48/0/underline_position = 0.0
+cache/0/48/0/underline_thickness = 0.0
+cache/0/48/0/scale = 1.0
+cache/0/47/0/ascent = 0.0
+cache/0/47/0/descent = 0.0
+cache/0/47/0/underline_position = 0.0
+cache/0/47/0/underline_thickness = 0.0
+cache/0/47/0/scale = 1.0
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
+cache/0/45/0/ascent = 0.0
+cache/0/45/0/descent = 0.0
+cache/0/45/0/underline_position = 0.0
+cache/0/45/0/underline_thickness = 0.0
+cache/0/45/0/scale = 1.0
+cache/0/44/0/ascent = 0.0
+cache/0/44/0/descent = 0.0
+cache/0/44/0/underline_position = 0.0
+cache/0/44/0/underline_thickness = 0.0
+cache/0/44/0/scale = 1.0
+cache/0/43/0/ascent = 0.0
+cache/0/43/0/descent = 0.0
+cache/0/43/0/underline_position = 0.0
+cache/0/43/0/underline_thickness = 0.0
+cache/0/43/0/scale = 1.0
+cache/0/42/0/ascent = 0.0
+cache/0/42/0/descent = 0.0
+cache/0/42/0/underline_position = 0.0
+cache/0/42/0/underline_thickness = 0.0
+cache/0/42/0/scale = 1.0
+cache/0/41/0/ascent = 0.0
+cache/0/41/0/descent = 0.0
+cache/0/41/0/underline_position = 0.0
+cache/0/41/0/underline_thickness = 0.0
+cache/0/41/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
 
 [node name="DebugConsole" type="CanvasLayer" groups=["Debug_manager"]]
 script = ExtResource("1_gpuxc")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(250, 60)
-offset_left = 1748.0
-offset_top = 1427.0
-offset_right = 2398.0
-offset_bottom = 1487.0
+offset_left = 1646.0
+offset_top = 1395.0
+offset_right = 2496.0
+offset_bottom = 1455.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 0
-offset_left = 1.0000176
-offset_top = -223.00005
-offset_right = 836.0
-offset_bottom = 20.999954
-scale = Vector2(0.77754325, 1.2048129)
+offset_left = -0.99998236
+offset_top = -182.00005
+offset_right = 849.0
+offset_bottom = 61.999954
 
 [node name="ConsoleOutput" type="RichTextLabel" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(835, 180)
+custom_minimum_size = Vector2(850, 180)
 layout_mode = 2
 theme_override_fonts/normal_font = SubResource("FontFile_gpuxc")
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_gpuxc")
 
 [node name="ConsoleInput" type="LineEdit" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(450, 60)
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_r56kf")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40

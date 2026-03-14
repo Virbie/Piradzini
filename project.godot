@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 CurrencyManager="*res://CurrencyManager.gd"
 SaveManager="*res://SaveManager.gd"
+Inventory="*res://inventory.gd"
 
 [display]
 

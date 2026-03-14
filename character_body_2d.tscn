@@ -274,6 +274,26 @@ animations = [{
 [node name="Main_player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(-1, -1)
 script = ExtResource("1_ij6vw")
+drop_through_duration = null
+max_speed = null
+acceleration = null
+deceleration = null
+air_control = null
+gravity = null
+jump_force = null
+jump_cut = null
+apex_gravity_multiplier = null
+coyote_time = null
+jump_buffer = null
+dash_speed = null
+dash_time = null
+dash_cooldown = null
+wall_slide_speed = null
+wall_jump_force = null
+wall_stick_time = null
+wall_jump_immunity_time = null
+wall_jump_grace_time = null
+fly_speed = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
