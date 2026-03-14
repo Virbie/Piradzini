@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://ch73di6uysh7m"]
+[gd_scene load_steps=58 format=4 uid="uid://ch73di6uysh7m"]
 
 [ext_resource type="PackedScene" uid="uid://cwl3ceqo7qaa5" path="res://character_body_2d.tscn" id="1_0e48y"]
 [ext_resource type="PackedScene" uid="uid://dkkxtlnnx7b7g" path="res://parallax_2d.tscn" id="1_epypp"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://daye3j1iull5" path="res://depozits.tscn" id="27_1fr6y"]
 [ext_resource type="Script" uid="uid://bh0lwr8wvhg56" path="res://House_inside.gd" id="28_2hxjc"]
 [ext_resource type="PackedScene" uid="uid://d1qxbwfa62ohd" path="res://debug_console.tscn" id="30_2u7jv"]
+[ext_resource type="PackedScene" uid="uid://bjd0kxqurnxrx" path="res://ui/inventory/inventory_ui.tscn" id="30_24dk6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_flf07"]
 shader = ExtResource("4_ta5nu")
@@ -6733,8 +6734,26 @@ offset_bottom = 40.0
 z_index = 1
 position = Vector2(795, 21)
 collision_mask = 3
+drop_through_duration = 0.2
+max_speed = 350.0
+acceleration = 1800.0
+deceleration = 2000.0
+air_control = 0.6
+gravity = 1400.0
+jump_force = 500.0
+jump_cut = 0.45
+apex_gravity_multiplier = 0.4
+coyote_time = 0.12
+jump_buffer = 0.12
+dash_speed = 520.0
+dash_time = 0.17
+dash_cooldown = 0.5
+wall_slide_speed = 260.0
+wall_jump_force = Vector2(450, 500)
+wall_stick_time = 0.2
 wall_jump_immunity_time = 0.75
 wall_jump_grace_time = 0.2
+fly_speed = 450.0
 
 [node name="House_inside_camera" type="Area2D" parent="Spēlētājs"]
 position = Vector2(-546, -37)
@@ -6753,6 +6772,8 @@ position = Vector2(1729.5, 356.5)
 shape = SubResource("RectangleShape2D_2u7jv")
 
 [node name="DebugConsole" parent="." instance=ExtResource("30_2u7jv")]
+
+[node name="InventoryUI" parent="." instance=ExtResource("30_24dk6")]
 
 [connection signal="body_entered" from="Spēlētājs/House_inside_camera" to="Spēlētājs/House_inside_camera" method="_on_body_entered"]
 [connection signal="body_exited" from="Spēlētājs/House_inside_camera" to="Spēlētājs/House_inside_camera" method="_on_body_exited"]

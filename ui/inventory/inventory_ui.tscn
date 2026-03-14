@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjd0kxqurnxrx"]
+
+[ext_resource type="Script" uid="uid://bmaooswqxfqf3" path="res://ui/inventory/inventory_ui.gd" id="1_6ch5n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ch5n"]
+bg_color = Color(0.9098039, 0.03137255, 0.25490198, 0.33333334)
+
+[node name="InventoryUI" type="CanvasLayer"]
+script = ExtResource("1_6ch5n")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1500, 500)
+offset_left = 614.0
+offset_top = 506.0
+offset_right = 2114.0
+offset_bottom = 1006.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ch5n")
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 190.0
+offset_right = 302.0
+offset_bottom = 230.0
+columns = 5

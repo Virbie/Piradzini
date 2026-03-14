@@ -85,14 +85,16 @@ func _ready() -> void:
 	saved_collision_mask = collision_mask
 
 	Inventory.add_item({
-			"name": "Kvass",
-			"icon": preload("res://assets/items/Kvass.png")
-		})
+		"name": "Kvass",
+		"icon": load("res://assets/items/kvass.png")
+	})
+
 
 # ==============================
 # GODOT LOOP
 # ==============================
 func _physics_process(delta):
+
 	if noclip_mode:
 		handle_fly_input()
 		global_position += velocity * delta
@@ -125,18 +127,28 @@ func _physics_process(delta):
 
 
 # ==============================
-# CONSOLE INPUT BLOCK
+# CONSOLE / UI INPUT BLOCK
 # ==============================
 func is_console_blocking_input() -> bool:
 	var console = get_tree().get_first_node_in_group("console")
 	return console != null and console.is_blocking_game_input()
 
 
+func is_inventory_blocking_input() -> bool:
+	var inventory = get_tree().get_first_node_in_group("inventory_ui")
+	return inventory != null and inventory.is_open()
+
+
+func is_ui_blocking_input() -> bool:
+	return is_console_blocking_input() or is_inventory_blocking_input()
+
+
 # ==============================
 # INPUT
 # ==============================
 func read_input():
-	if is_console_blocking_input():
+
+	if is_ui_blocking_input():
 		input_dir = 0.0
 		return
 
@@ -202,12 +214,14 @@ func update_drop_through(delta):
 # HORIZONTAL MOVEMENT
 # ==============================
 func handle_horizontal(delta):
+
 	if is_dashing:
 		velocity.x = dash_dir * dash_speed
 		return
 
 	var target_speed = input_dir * max_speed
 	var accel = acceleration if is_on_floor() else acceleration * air_control
+
 	if abs(target_speed) > 0.01:
 		velocity.x = move_toward(velocity.x, target_speed, accel * delta)
 	else:
@@ -221,12 +235,14 @@ func handle_horizontal(delta):
 # GRAVITY
 # ==============================
 func handle_gravity(delta):
+
 	if is_on_floor() and not is_dropping_through:
 		coyote_timer = coyote_time
 	else:
 		coyote_timer -= delta
 
 	var applied_gravity = gravity
+
 	if velocity.y < 0 and abs(velocity.y) < 40:
 		applied_gravity *= apex_gravity_multiplier
 
@@ -241,9 +257,10 @@ func handle_gravity(delta):
 # JUMP
 # ==============================
 func handle_jump():
+
 	jump_buffer_timer = max(jump_buffer_timer - get_physics_process_delta_time(), 0)
 
-	if is_console_blocking_input():
+	if is_ui_blocking_input():
 		return
 
 	if is_dropping_through:
@@ -265,9 +282,10 @@ func handle_jump():
 # DASH
 # ==============================
 func handle_dash(delta):
+
 	dash_cd_timer -= delta
 
-	if is_console_blocking_input():
+	if is_ui_blocking_input():
 		return
 
 	if is_dropping_through:
@@ -290,7 +308,8 @@ func handle_dash(delta):
 # WALL SLIDE + WALL JUMP
 # ==============================
 func handle_wall_slide(delta):
-	if is_console_blocking_input():
+
+	if is_ui_blocking_input():
 		was_on_wall = false
 		return
 
@@ -347,7 +366,8 @@ func set_fly_mode(enabled: bool):
 
 
 func handle_fly_input():
-	if is_console_blocking_input():
+
+	if is_ui_blocking_input():
 		velocity = Vector2.ZERO
 		return
 
@@ -361,6 +381,7 @@ func handle_fly_input():
 
 
 func set_noclip(enabled: bool) -> void:
+
 	if enabled == noclip_mode:
 		if not enabled:
 			collision_layer = saved_collision_layer
@@ -392,6 +413,7 @@ func toggle_noclip() -> void:
 # ANIMATIONS
 # ==============================
 func handle_animations():
+
 	var move_threshold: float = 10.0
 	var is_moving: bool = abs(velocity.x) > move_threshold
 	var dir_str := "right" if facing == 1 else "left"
@@ -440,6 +462,7 @@ func get_save_data() -> Dictionary:
 
 
 func load_save_data(data: Dictionary) -> void:
+
 	var target_pos = Vector2(
 		data.get("x", 0.0),
 		data.get("y", 0.0)
