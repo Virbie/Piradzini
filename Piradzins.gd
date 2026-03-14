@@ -75,12 +75,26 @@ var wall_jump_grace_timer := 0.0
 var was_on_wall := false
 
 var fly_mode := false
+var noclip_mode := false
+var saved_collision_layer := 0
+var saved_collision_mask := 0
+
+
+func _ready() -> void:
+	saved_collision_layer = collision_layer
+	saved_collision_mask = collision_mask
 
 
 # ==============================
 # GODOT LOOP
 # ==============================
 func _physics_process(delta):
+	if noclip_mode:
+		handle_fly_input()
+		global_position += velocity * delta
+		handle_animations()
+		return
+
 	if fly_mode:
 		handle_fly_input()
 		move_and_slide()
@@ -327,6 +341,7 @@ func set_fly_mode(enabled: bool):
 	velocity = Vector2.ZERO
 	print("Fly mode: ", fly_mode)
 
+
 func handle_fly_input():
 	if is_console_blocking_input():
 		velocity = Vector2.ZERO
@@ -341,14 +356,54 @@ func handle_fly_input():
 		facing = sign(fly_x)
 
 
+func set_noclip(enabled: bool) -> void:
+	if enabled == noclip_mode:
+		if not enabled:
+			collision_layer = saved_collision_layer
+			collision_mask = saved_collision_mask
+			set_fly_mode(false)
+		return
+
+	if enabled:
+		saved_collision_layer = collision_layer
+		saved_collision_mask = collision_mask
+		collision_layer = 0
+		collision_mask = 0
+		set_fly_mode(true)
+	else:
+		collision_layer = saved_collision_layer
+		collision_mask = saved_collision_mask
+		set_fly_mode(false)
+
+	noclip_mode = enabled
+	velocity = Vector2.ZERO
+	print("Noclip: ", noclip_mode)
+
+
+func toggle_noclip() -> void:
+	set_noclip(not noclip_mode)
+
+
 # ==============================
 # ANIMATIONS
 # ==============================
 func handle_animations():
 	var move_threshold: float = 10.0
 	var is_moving: bool = abs(velocity.x) > move_threshold
-
 	var dir_str := "right" if facing == 1 else "left"
+
+	if noclip_mode or fly_mode:
+		if is_moving and not was_moving:
+			anim.play("sak_skriet_" + dir_str)
+		elif is_moving:
+			anim.play("skrien_" + dir_str)
+		elif was_moving and not is_moving:
+			anim.play("skrien_beidz_" + dir_str)
+		else:
+			anim.play("idle_" + dir_str)
+
+		was_moving = is_moving
+		return
 
 	if is_on_floor():
 		if is_moving and not was_moving:
@@ -363,3 +418,37 @@ func handle_animations():
 		anim.play("idle_" + dir_str)
 
 	was_moving = is_moving
+
+
+# ==============================
+# SAVES
+# ==============================
+func get_save_key() -> String:
+	return "player"
+
+
+func get_save_data() -> Dictionary:
+	return {
+		"x": global_position.x,
+		"y": global_position.y,
+		"facing": facing
+	}
+
+
+func load_save_data(data: Dictionary) -> void:
+	var target_pos = Vector2(
+		data.get("x", 0.0),
+		data.get("y", 0.0)
+	)
+
+	facing = data.get("facing", 1)
+
+	set_noclip(false)
+
+	call_deferred("_apply_loaded_position", target_pos)
+
+
+func _apply_loaded_position(target_pos: Vector2) -> void:
+	await get_tree().physics_frame
+	global_position = target_pos + Vector2(0, -2)
+	velocity = Vector2.ZERO

@@ -3,8 +3,10 @@ extends CanvasLayer
 @onready var output = $Panel/VBoxContainer/ConsoleOutput
 @onready var input = $Panel/VBoxContainer/ConsoleInput
 
+# ==============================
+# Different variables
+# ==============================
 var console_open := false
-
 var enabled := OS.is_debug_build()
 var debug_active := false
 
@@ -26,20 +28,17 @@ func _input(event):
 		console_open = !console_open
 		visible = console_open
 
-		# Do NOT auto-focus when opening
 		if not console_open:
 			input.release_focus()
 
 		get_viewport().set_input_as_handled()
 		return
 
-	# If console is open, Enter focuses the input so typing starts
 	if console_open and event.is_action_pressed("ui_accept") and not input.has_focus():
 		input.grab_focus()
 		get_viewport().set_input_as_handled()
 		return
 
-	# Escape stops typing but keeps console open
 	if console_open and event.is_action_pressed("ui_cancel") and input.has_focus():
 		input.release_focus()
 		get_viewport().set_input_as_handled()
@@ -57,7 +56,7 @@ func _input(event):
 
 	if event.is_action_pressed("damage_test"):
 		get_tree().call_group("Debug_manager", "take_damage", 1)
-		
+
 	if event.is_action_pressed("heal_test"):
 		get_tree().call_group("Debug_manager", "heal", 1)
 
@@ -66,7 +65,6 @@ func _input(event):
 
 	if event.is_action_pressed("remove_heart_test"):
 		get_tree().call_group("Debug_manager", "remove_max_hp", 1)
-		
 
 func _on_command_entered(text):
 	text = text.strip_edges()
@@ -109,15 +107,55 @@ func _on_command_entered(text):
 				console_print("Usage: fly on / fly off")
 			else:
 				var state = args[1].strip_edges().to_lower()
+				var player = get_tree().get_first_node_in_group("player")
 
-				if state == "on":
-					get_tree().call_group("Debug_manager", "set_fly_mode", true)
+				if player == null:
+					console_print("Player not found")
+				elif state == "on":
+					player.set_fly_mode(true)
 					console_print("Fly mode enabled")
 				elif state == "off":
-					get_tree().call_group("Debug_manager", "set_fly_mode", false)
+					player.set_fly_mode(false)
 					console_print("Fly mode disabled")
 				else:
 					console_print("Usage: fly on / fly off")
+
+		"noclip":
+			if args.size() < 2:
+				console_print("Usage: noclip on / noclip off")
+			else:
+				var state = args[1].strip_edges().to_lower()
+				var player = get_tree().get_first_node_in_group("player")
+
+				if player == null:
+					console_print("Player not found")
+				elif state == "on":
+					player.set_noclip(true)
+					console_print("Noclip enabled")
+				elif state == "off":
+					player.set_noclip(false)
+					console_print("Noclip disabled")
+				else:
+					console_print("Usage: noclip on / noclip off")
+
+
+# ==============================
+# Lai izveidotu saglabajamus datus nepieciesams pievienot to "saveable" grupai
+# un pievienot funkcijas, kas atrodamas piradzins.gd uc.
+# ==============================
+		"save":
+			SaveManager.collect_save_data()
+			SaveManager.save_game()
+			console_print("Game saved")
+
+		"load":
+			SaveManager.load_game()
+			SaveManager.apply_save_data()
+			console_print("Game loaded")
+
+		"deletesave":
+			SaveManager.delete_save()
+			console_print("Save deleted")
 
 		_:
 			console_print("Unknown command")

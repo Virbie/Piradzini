@@ -6680,7 +6680,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Dzīvības" type="HBoxContainer" parent="LS/Lietotāja Saskarne/HUD" groups=["Debug_manager"]]
+[node name="Dzīvības" type="HBoxContainer" parent="LS/Lietotāja Saskarne/HUD" groups=["Debug_manager", "Health_save", "saveable"]]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.085
@@ -6729,7 +6729,7 @@ offset_bottom = 40.0
 
 [node name="Spēlētājs" type="Node2D" parent="."]
 
-[node name="Spēlētājs" parent="Spēlētājs" groups=["Debug_manager"] instance=ExtResource("1_0e48y")]
+[node name="Player" parent="Spēlētājs" groups=["Debug_manager", "saveable"] instance=ExtResource("1_0e48y")]
 z_index = 1
 position = Vector2(795, 21)
 collision_mask = 3
