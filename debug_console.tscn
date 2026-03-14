@@ -1,26 +1,122 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1qxbwfa62ohd"]
+[gd_scene load_steps=4 format=3 uid="uid://d1qxbwfa62ohd"]
 
 [ext_resource type="Script" uid="uid://ddh2gcc6wwkn1" path="res://debug_console.gd" id="1_gpuxc"]
 
-[node name="DebugConsole" type="CanvasLayer"]
+[sub_resource type="FontFile" id="FontFile_gpuxc"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_r56kf"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/17/0/ascent = 0.0
+cache/0/17/0/descent = 0.0
+cache/0/17/0/underline_position = 0.0
+cache/0/17/0/underline_thickness = 0.0
+cache/0/17/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+cache/0/19/0/ascent = 0.0
+cache/0/19/0/descent = 0.0
+cache/0/19/0/underline_position = 0.0
+cache/0/19/0/underline_thickness = 0.0
+cache/0/19/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+cache/0/23/0/ascent = 0.0
+cache/0/23/0/descent = 0.0
+cache/0/23/0/underline_position = 0.0
+cache/0/23/0/underline_thickness = 0.0
+cache/0/23/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/27/0/ascent = 0.0
+cache/0/27/0/descent = 0.0
+cache/0/27/0/underline_position = 0.0
+cache/0/27/0/underline_thickness = 0.0
+cache/0/27/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
+cache/0/29/0/ascent = 0.0
+cache/0/29/0/descent = 0.0
+cache/0/29/0/underline_position = 0.0
+cache/0/29/0/underline_thickness = 0.0
+cache/0/29/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+
+[node name="DebugConsole" type="CanvasLayer" groups=["Debug_manager"]]
 script = ExtResource("1_gpuxc")
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = 2107.0
-offset_top = 1369.0
-offset_right = 2159.0
-offset_bottom = 1397.0
-scale = Vector2(3.3277304, 2.7330132)
+custom_minimum_size = Vector2(250, 60)
+offset_left = 1748.0
+offset_top = 1427.0
+offset_right = 2398.0
+offset_bottom = 1487.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
-offset_top = -3.9999995
-offset_right = 52.0
-offset_bottom = 28.0
-scale = Vector2(0.99259716, 1.1051278)
+offset_left = 1.0000176
+offset_top = -223.00005
+offset_right = 836.0
+offset_bottom = 20.999954
+scale = Vector2(0.77754325, 1.2048129)
 
 [node name="ConsoleOutput" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(835, 180)
 layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_gpuxc")
+theme_override_font_sizes/normal_font_size = 50
 
 [node name="ConsoleInput" type="LineEdit" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(450, 60)
 layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_r56kf")
+theme_override_font_sizes/font_size = 50

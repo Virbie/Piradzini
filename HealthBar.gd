@@ -17,20 +17,19 @@ func _ready() -> void:
 	_update_hearts()
 
 func _process(delta: float) -> void:
-	if current_hp == max_hp and not is_waving:
+	if current_hp == max_hp and not is_waving and not is_updating_hp:
 		wave_timer += delta
 		if wave_timer >= wave_interval:
 			wave_timer = 0.0
 			start_wave()
+	else:
+		wave_timer = 0.0
 
-func _input(event):
-	if event.is_action_pressed("damage_test"):
-		call_deferred("take_damage", 1)
-
-	if event.is_action_pressed("heal_test"):
-		call_deferred("heal", 1)
-		
 func _create_hearts() -> void:
+	for heart in hearts:
+		heart.queue_free()
+	hearts.clear()
+
 	for i in range(max_hp):
 		var heart = heart_scene.instantiate()
 		add_child(heart)
@@ -42,52 +41,60 @@ func _update_hearts() -> void:
 			hearts[i].set_full()
 		else:
 			hearts[i].set_empty()
-	
+
 	print("Current HP: ", current_hp)
 
 func take_damage(amount: int) -> void:
 	if current_hp <= 0 or is_updating_hp:
 		return
-		
+
 	is_updating_hp = true
 
-	var target_hp = max(current_hp - amount, 0)
-	for i in range(target_hp, current_hp):
-		await hearts[i].play_damage()  # await works properly now
+	var old_hp = current_hp
+	current_hp = max(current_hp - amount, 0)
+	var target_hp = current_hp
 
-	current_hp = target_hp
-	_update_hearts()
+	for i in range(target_hp, old_hp):
+		hearts[i].set_empty()
+
+	for i in range(target_hp, old_hp):
+		hearts[i].play_damage()
 
 	is_updating_hp = false
 
 func heal(amount: int) -> void:
 	if is_updating_hp:
 		return
-		
+
 	is_updating_hp = true
-	
-	var target_hp = min(current_hp + amount, max_hp)
-	for i in range(current_hp, target_hp):
-		await hearts[i].play_heal_sequence()
-	current_hp = target_hp
-	_update_hearts()
+
+	var old_hp = current_hp
+	current_hp = min(current_hp + amount, max_hp)
+	var target_hp = current_hp
+
+	for i in range(old_hp, target_hp):
+		hearts[i].set_full()
+
+	for i in range(old_hp, target_hp):
+		hearts[i].play_heal_sequence()
+
 	is_updating_hp = false
 
 func add_max_hp(amount: int) -> void:
 	for i in range(amount):
 		max_hp += 1
-		
+
 		var heart = heart_scene.instantiate()
 		add_child(heart)
 		hearts.append(heart)
 
 	current_hp = min(current_hp + amount, max_hp)
 	_update_hearts()
-	
+
 func remove_max_hp(amount: int) -> void:
 	for i in range(amount):
-		if max_hp <= 0:
-			return
+		if max_hp <= 0 or hearts.is_empty():
+			break
 
 		max_hp -= 1
 
@@ -98,11 +105,17 @@ func remove_max_hp(amount: int) -> void:
 	_update_hearts()
 
 func start_wave() -> void:
+	if is_updating_hp or current_hp != max_hp:
+		return
+
 	is_waving = true
 	await wave_sequence()
 	is_waving = false
 
 func wave_sequence() -> void:
 	for heart in hearts:
+		if is_updating_hp or current_hp != max_hp:
+			break
+
 		heart.play_wave()
-		await get_tree().create_timer(0.25).timeout  # stagger the wave
+		await get_tree().create_timer(0.25).timeout

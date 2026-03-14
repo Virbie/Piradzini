@@ -154,6 +154,6 @@ script = ExtResource("1_a8sc6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_emhc5")
-animation = &"Heal5"
+animation = &"SharedSprite"
 
 [node name="AnimPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
