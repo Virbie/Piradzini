@@ -26,7 +26,7 @@
 [ext_resource type="Script" uid="uid://c5vddfgdrbct7" path="res://Prieksplans.gd" id="19_bjha6"]
 [ext_resource type="Shader" uid="uid://bofa384bnjaww" path="res://prieksplans.gdshader" id="19_gt76g"]
 [ext_resource type="PackedScene" uid="uid://dt0wgqngxqms" path="res://ui/general_ui/player_ui.tscn" id="25_ebxd8"]
-[ext_resource type="Script" uid="uid://bh0lwr8wvhg56" path="res://House_inside.gd" id="28_2hxjc"]
+[ext_resource type="Script" path="res://House_inside.gd" id="28_2hxjc"]
 [ext_resource type="PackedScene" uid="uid://d1qxbwfa62ohd" path="res://ui/atkukainosans_saskarne/debug_console.tscn" id="30_2u7jv"]
 [ext_resource type="PackedScene" uid="uid://bjd0kxqurnxrx" path="res://ui/inventory/inventory_ui.tscn" id="30_24dk6"]
 
