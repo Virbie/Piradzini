@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-var heart_scene: PackedScene = preload("res://Dzīvība.tscn")
+var heart_scene: PackedScene = preload("res://ui/general_ui/Dzīvība.tscn")
 @export var max_hp: int = 10
 
 var current_hp: int = 10

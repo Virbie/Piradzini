@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://ch73di6uysh7m"]
+[gd_scene load_steps=56 format=4 uid="uid://ch73di6uysh7m"]
 
 [ext_resource type="PackedScene" uid="uid://cwl3ceqo7qaa5" path="res://character_body_2d.tscn" id="1_0e48y"]
 [ext_resource type="PackedScene" uid="uid://dkkxtlnnx7b7g" path="res://parallax_2d.tscn" id="1_epypp"]
@@ -25,10 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://cgj6ey3v45ny3" path="res://durvisatveramas.tscn" id="17_e8dv2"]
 [ext_resource type="Script" uid="uid://c5vddfgdrbct7" path="res://Prieksplans.gd" id="19_bjha6"]
 [ext_resource type="Shader" uid="uid://bofa384bnjaww" path="res://prieksplans.gdshader" id="19_gt76g"]
-[ext_resource type="Script" uid="uid://b5qaolphv1r2w" path="res://HealthBar.gd" id="23_bjha6"]
-[ext_resource type="PackedScene" uid="uid://daye3j1iull5" path="res://depozits.tscn" id="27_1fr6y"]
+[ext_resource type="PackedScene" uid="uid://dt0wgqngxqms" path="res://ui/general_ui/player_ui.tscn" id="25_ebxd8"]
 [ext_resource type="Script" uid="uid://bh0lwr8wvhg56" path="res://House_inside.gd" id="28_2hxjc"]
-[ext_resource type="PackedScene" uid="uid://d1qxbwfa62ohd" path="res://debug_console.tscn" id="30_2u7jv"]
+[ext_resource type="PackedScene" uid="uid://d1qxbwfa62ohd" path="res://ui/atkukainosans_saskarne/debug_console.tscn" id="30_2u7jv"]
 [ext_resource type="PackedScene" uid="uid://bjd0kxqurnxrx" path="res://ui/inventory/inventory_ui.tscn" id="30_24dk6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_flf07"]
@@ -6344,10 +6343,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2nhjh"]
-atlas = ExtResource("6_2nhjh")
-region = Rect2(-0.15491676, 79.69426, 139.85698, 33.135124)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebxd8"]
 size = Vector2(692.375, 123.625)
 
@@ -6669,65 +6664,6 @@ sprite_frames = SubResource("SpriteFrames_hqns4")
 animation = &"idle"
 frame_progress = 0.40016818
 
-[node name="LS" type="Node" parent="."]
-
-[node name="Lietotāja Saskarne" type="CanvasLayer" parent="LS"]
-
-[node name="HUD" type="Control" parent="LS/Lietotāja Saskarne"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Dzīvības" type="HBoxContainer" parent="LS/Lietotāja Saskarne/HUD" groups=["Debug_manager", "Health_save", "saveable"]]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.085
-anchor_top = 0.02
-anchor_right = 0.2
-anchor_bottom = 0.02
-offset_right = 136.0
-offset_bottom = 12.0
-scale = Vector2(6, 6)
-script = ExtResource("23_bjha6")
-
-[node name="Statuss" type="HBoxContainer" parent="LS/Lietotāja Saskarne/HUD"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.17
-anchor_top = 0.08
-anchor_right = 0.5
-anchor_bottom = 0.1
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(6, 6)
-
-[node name="Red_HP_bar" type="Sprite2D" parent="LS/Lietotāja Saskarne/HUD/Statuss"]
-texture = SubResource("AtlasTexture_2nhjh")
-
-[node name="depozits" parent="LS/Lietotāja Saskarne/HUD" instance=ExtResource("27_1fr6y")]
-layout_mode = 1
-anchors_preset = 5
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_left = -230.0
-offset_top = 200.0
-offset_right = -190.0
-offset_bottom = 240.0
-grow_vertical = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="LS/Lietotāja Saskarne/HUD"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="LS/Lietotāja Saskarne/HUD"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Spēlētājs" type="Node2D" parent="."]
 
 [node name="Player" parent="Spēlētājs" groups=["Debug_manager", "saveable"] instance=ExtResource("1_0e48y")]
@@ -6774,6 +6710,8 @@ shape = SubResource("RectangleShape2D_2u7jv")
 [node name="DebugConsole" parent="." instance=ExtResource("30_2u7jv")]
 
 [node name="InventoryUI" parent="." instance=ExtResource("30_24dk6")]
+
+[node name="Lietotāja Saskarne" parent="." instance=ExtResource("25_ebxd8")]
 
 [connection signal="body_entered" from="Spēlētājs/House_inside_camera" to="Spēlētājs/House_inside_camera" method="_on_body_entered"]
 [connection signal="body_exited" from="Spēlētājs/House_inside_camera" to="Spēlētājs/House_inside_camera" method="_on_body_exited"]

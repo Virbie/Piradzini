@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1qxbwfa62ohd"]
 
-[ext_resource type="Script" uid="uid://ddh2gcc6wwkn1" path="res://debug_console.gd" id="1_gpuxc"]
+[ext_resource type="Script" uid="uid://ddh2gcc6wwkn1" path="res://ui/atkukainosans_saskarne/debug_console.gd" id="1_46r8i"]
 
 [sub_resource type="FontFile" id="FontFile_gpuxc"]
 subpixel_positioning = 0
@@ -151,7 +151,7 @@ cache/0/40/0/underline_thickness = 0.0
 cache/0/40/0/scale = 1.0
 
 [node name="DebugConsole" type="CanvasLayer" groups=["Debug_manager"]]
-script = ExtResource("1_gpuxc")
+script = ExtResource("1_46r8i")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(250, 60)

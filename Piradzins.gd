@@ -83,11 +83,15 @@ var saved_collision_mask := 0
 func _ready() -> void:
 	saved_collision_layer = collision_layer
 	saved_collision_mask = collision_mask
-
 	Inventory.add_item({
-		"name": "Kvass",
-		"icon": load("res://assets/items/kvass.png")
+		"name": "Pipars",
+		"icon": load("res://assets/items/DR_pepper.png")
 	})
+	for i in range(10):
+		Inventory.add_item({
+			"name": "Kvass",
+			"icon": load("res://assets/items/kvass.png")
+		})
 
 
 # ==============================

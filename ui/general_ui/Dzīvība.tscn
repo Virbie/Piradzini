@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bgt3rs581pghm"]
 
-[ext_resource type="Script" uid="uid://bgqjkgjhdi0yn" path="res://heart.gd" id="1_a8sc6"]
+[ext_resource type="Script" uid="uid://bgqjkgjhdi0yn" path="res://ui/general_ui/heart.gd" id="1_a8sc6"]
 [ext_resource type="Texture2D" uid="uid://cidnbqc46iill" path="res://assets/GUI_tileset.png" id="2_sl3nl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v70i5"]

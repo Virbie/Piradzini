@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://daye3j1iull5"]
 
-[ext_resource type="Script" uid="uid://dw7k4ptn6ipfb" path="res://depozīts.gd" id="1_jt0j6"]
+[ext_resource type="Script" uid="uid://dw7k4ptn6ipfb" path="res://ui/general_ui/depozīts.gd" id="1_jt0j6"]
 [ext_resource type="Texture2D" uid="uid://cidnbqc46iill" path="res://assets/GUI_tileset.png" id="2_muqlm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gt76g"]

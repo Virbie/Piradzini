@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt0wgqngxqms"]
+
+[ext_resource type="Script" uid="uid://b5qaolphv1r2w" path="res://ui/general_ui/HealthBar.gd" id="1_e7qnl"]
+[ext_resource type="Texture2D" uid="uid://cidnbqc46iill" path="res://assets/GUI_tileset.png" id="2_yxequ"]
+[ext_resource type="PackedScene" uid="uid://daye3j1iull5" path="res://ui/general_ui/depozits.tscn" id="3_tyxbn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga784"]
+atlas = ExtResource("2_yxequ")
+region = Rect2(-0.15491676, 79.69426, 139.85698, 33.135124)
+
+[node name="Lietotāja Saskarne" type="CanvasLayer"]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dzīvības" type="HBoxContainer" parent="HUD" groups=["Debug_manager", "Health_save", "saveable"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.085
+anchor_top = 0.02
+anchor_right = 0.2
+anchor_bottom = 0.02
+offset_right = 136.0
+offset_bottom = 12.0
+scale = Vector2(6, 6)
+script = ExtResource("1_e7qnl")
+
+[node name="Statuss" type="HBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.17
+anchor_top = 0.08
+anchor_right = 0.5
+anchor_bottom = 0.1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(6, 6)
+
+[node name="Red_HP_bar" type="Sprite2D" parent="HUD/Statuss"]
+texture = SubResource("AtlasTexture_ga784")
+
+[node name="depozits" parent="HUD" instance=ExtResource("3_tyxbn")]
+layout_mode = 1
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = -1125.0
+offset_top = 1272.0
+offset_right = -1085.0
+offset_bottom = 1312.0
+grow_vertical = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUD"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

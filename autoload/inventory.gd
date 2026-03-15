@@ -3,7 +3,8 @@ extends Node
 signal inventory_changed
 
 var items: Array = []
-var max_slots := 20
+var max_slots := 18
+
 
 func add_item(item):
 	if items.size() >= max_slots:
