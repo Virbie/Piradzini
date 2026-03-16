@@ -6352,21 +6352,23 @@ size = Vector2(227, 794)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2u7jv"]
 size = Vector2(71, 67)
 
-[node name="Spele" type="Node2D"]
+[node name="Spēle" type="Node"]
+
+[node name="1_Līmenis" type="Node2D" parent="."]
 position = Vector2(-126, -477)
 
-[node name="Pasaule" type="Node" parent="."]
+[node name="Pasaule" type="Node" parent="1_Līmenis"]
 
-[node name="fons" type="Node" parent="Pasaule"]
+[node name="fons" type="Node" parent="1_Līmenis/Pasaule"]
 
-[node name="debesis" parent="Pasaule/fons" instance=ExtResource("1_epypp")]
+[node name="debesis" parent="1_Līmenis/Pasaule/fons" instance=ExtResource("1_epypp")]
 z_index = -4096
 scroll_scale = Vector2(0, 1)
 scroll_offset = Vector2(670, -1420)
 
-[node name="pats fons" type="Node" parent="Pasaule/fons"]
+[node name="pats fons" type="Node" parent="1_Līmenis/Pasaule/fons"]
 
-[node name="fons tālākais" type="TileMapLayer" parent="Pasaule/fons/pats fons"]
+[node name="fons tālākais" type="TileMapLayer" parent="1_Līmenis/Pasaule/fons/pats fons"]
 z_index = -4095
 material = SubResource("ShaderMaterial_flf07")
 use_parent_material = true
@@ -6376,7 +6378,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 script = ExtResource("7_2nhjh")
 
-[node name="fons tālais3" type="TileMapLayer" parent="Pasaule/fons/pats fons"]
+[node name="fons tālais3" type="TileMapLayer" parent="1_Līmenis/Pasaule/fons/pats fons"]
 z_index = -4095
 material = SubResource("ShaderMaterial_flf07")
 use_parent_material = true
@@ -6387,7 +6389,7 @@ rendering_quadrant_size = 32
 collision_enabled = false
 script = ExtResource("6_k73cj")
 
-[node name="fons tālais" type="TileMapLayer" parent="Pasaule/fons/pats fons"]
+[node name="fons tālais" type="TileMapLayer" parent="1_Līmenis/Pasaule/fons/pats fons"]
 z_index = -4095
 material = SubResource("ShaderMaterial_flf07")
 use_parent_material = true
@@ -6398,7 +6400,7 @@ rendering_quadrant_size = 32
 collision_enabled = false
 script = ExtResource("6_k73cj")
 
-[node name="fons tālais2" type="TileMapLayer" parent="Pasaule/fons/pats fons"]
+[node name="fons tālais2" type="TileMapLayer" parent="1_Līmenis/Pasaule/fons/pats fons"]
 z_index = -4095
 material = SubResource("ShaderMaterial_flf07")
 use_parent_material = true
@@ -6408,7 +6410,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="fons tālais vidus2" type="TileMapLayer" parent="Pasaule/fons/pats fons"]
+[node name="fons tālais vidus2" type="TileMapLayer" parent="1_Līmenis/Pasaule/fons/pats fons"]
 z_index = -4094
 material = SubResource("ShaderMaterial_ta5nu")
 use_parent_material = true
@@ -6418,7 +6420,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="fons tālais vidus" type="TileMapLayer" parent="Pasaule/fons/pats fons"]
+[node name="fons tālais vidus" type="TileMapLayer" parent="1_Līmenis/Pasaule/fons/pats fons"]
 z_index = -4094
 material = SubResource("ShaderMaterial_ta5nu")
 use_parent_material = true
@@ -6428,7 +6430,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 script = ExtResource("8_rjqkl")
 
-[node name="fonsvidus2" type="TileMapLayer" parent="Pasaule/fons/pats fons"]
+[node name="fonsvidus2" type="TileMapLayer" parent="1_Līmenis/Pasaule/fons/pats fons"]
 z_index = -750
 material = SubResource("ShaderMaterial_d2bti")
 use_parent_material = true
@@ -6438,7 +6440,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="fonsvidus3" type="TileMapLayer" parent="Pasaule/fons/pats fons"]
+[node name="fonsvidus3" type="TileMapLayer" parent="1_Līmenis/Pasaule/fons/pats fons"]
 z_index = -750
 material = SubResource("ShaderMaterial_d2bti")
 use_parent_material = true
@@ -6448,7 +6450,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="fonsvidus" type="TileMapLayer" parent="Pasaule/fons/pats fons"]
+[node name="fonsvidus" type="TileMapLayer" parent="1_Līmenis/Pasaule/fons/pats fons"]
 z_index = -750
 material = SubResource("ShaderMaterial_d2bti")
 use_parent_material = true
@@ -6458,7 +6460,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 script = ExtResource("10_fs4d3")
 
-[node name="Fons tuvākais2" type="TileMapLayer" parent="Pasaule/fons/pats fons"]
+[node name="Fons tuvākais2" type="TileMapLayer" parent="1_Līmenis/Pasaule/fons/pats fons"]
 z_index = -750
 material = SubResource("ShaderMaterial_nr8wp")
 use_parent_material = true
@@ -6468,7 +6470,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="Fons tuvākais" type="TileMapLayer" parent="Pasaule/fons/pats fons"]
+[node name="Fons tuvākais" type="TileMapLayer" parent="1_Līmenis/Pasaule/fons/pats fons"]
 z_index = -750
 material = SubResource("ShaderMaterial_nr8wp")
 use_parent_material = true
@@ -6478,9 +6480,9 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 script = ExtResource("12_7vxoj")
 
-[node name="statiskais" type="Node" parent="Pasaule"]
+[node name="statiskais" type="Node" parent="1_Līmenis/Pasaule"]
 
-[node name="-4" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="-4" type="TileMapLayer" parent="1_Līmenis/Pasaule/statiskais"]
 z_index = -501
 material = SubResource("ShaderMaterial_2nhjh")
 use_parent_material = true
@@ -6489,7 +6491,7 @@ tile_map_data = PackedByteArray("AABGABQAAAAcAAwAAABGABMAAAAbAAsAAABFABMAAAAbAAs
 tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 
-[node name="-3" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="-3" type="TileMapLayer" parent="1_Līmenis/Pasaule/statiskais"]
 z_index = -500
 material = SubResource("ShaderMaterial_e8dv2")
 use_parent_material = true
@@ -6498,7 +6500,7 @@ tile_map_data = PackedByteArray("AAAIAAEAAAAiAAsAAAAIAAIAAAAiAAsAAAAIAAMAAAAiAAs
 tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 
-[node name="-2" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="-2" type="TileMapLayer" parent="1_Līmenis/Pasaule/statiskais"]
 z_index = -500
 material = SubResource("ShaderMaterial_ei405")
 use_parent_material = true
@@ -6507,7 +6509,7 @@ tile_map_data = PackedByteArray("AAASAPv/AABBABIAAAASAPz/AABBABMAAAASAP3/AABBABQ
 tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 
-[node name="-1" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="-1" type="TileMapLayer" parent="1_Līmenis/Pasaule/statiskais"]
 z_index = -100
 material = SubResource("ShaderMaterial_7vxoj")
 use_parent_material = true
@@ -6516,7 +6518,7 @@ tile_map_data = PackedByteArray("AABzABAAAAAAAAkAAACOABAAAAAAAAkAAACZABAAAAAAAAk
 tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 
-[node name="0" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="0" type="TileMapLayer" parent="1_Līmenis/Pasaule/statiskais"]
 z_index = 100
 use_parent_material = true
 position = Vector2(-125, -478)
@@ -6524,7 +6526,7 @@ tile_map_data = PackedByteArray("AABCAAkAAAAvAAYAAABCAAoAAAAvAAcAAABCAAsAAAAvAAg
 tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 
-[node name="1" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="1" type="TileMapLayer" parent="1_Līmenis/Pasaule/statiskais"]
 z_index = 101
 material = SubResource("ShaderMaterial_k73cj")
 use_parent_material = true
@@ -6533,7 +6535,7 @@ tile_map_data = PackedByteArray("AAA9AAgAAAA0AAwAAAA9AAkAAAA0AA0AAAA9AAoAAAA0AA4
 tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 
-[node name="2" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="2" type="TileMapLayer" parent="1_Līmenis/Pasaule/statiskais"]
 z_index = 100
 material = SubResource("ShaderMaterial_rjqkl")
 use_parent_material = true
@@ -6542,7 +6544,7 @@ tile_map_data = PackedByteArray("AABBABEAAAAyAAwAAABBABIAAAAyAA0AAABCABIAAAAyAAw
 tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 
-[node name="3" type="TileMapLayer" parent="Pasaule/statiskais"]
+[node name="3" type="TileMapLayer" parent="1_Līmenis/Pasaule/statiskais"]
 z_index = 102
 material = SubResource("ShaderMaterial_fs4d3")
 use_parent_material = true
@@ -6551,82 +6553,82 @@ tile_map_data = PackedByteArray("AABtABEAAAAAAAkAAACeABEAAAAAAAkAAACUABEAAAAAAAk
 tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 
-[node name="hitboksi" type="Node" parent="Pasaule/statiskais"]
+[node name="hitboksi" type="Node" parent="1_Līmenis/Pasaule/statiskais"]
 
-[node name="Zilais moskvičš zemitānos" type="StaticBody2D" parent="Pasaule/statiskais/hitboksi"]
+[node name="Zilais moskvičš zemitānos" type="StaticBody2D" parent="1_Līmenis/Pasaule/statiskais/hitboksi"]
 
-[node name="Poligons saskarnei" type="CollisionPolygon2D" parent="Pasaule/statiskais/hitboksi/Zilais moskvičš zemitānos"]
+[node name="Poligons saskarnei" type="CollisionPolygon2D" parent="1_Līmenis/Pasaule/statiskais/hitboksi/Zilais moskvičš zemitānos"]
 polygon = PackedVector2Array(1450, -124, 1450, -143, 1454, -146, 1456, -151, 1457, -163, 1460, -166, 1513, -166, 1516, -163, 1518, -150, 1519, -146, 1523, -143, 1523, -127, 1525, -125, 1525, -123, 1523, -121, 1522, -113, 1520, -111, 1514, -111, 1513, -114, 1513, -117, 1460, -117, 1460, -113, 1459, -111, 1453, -111, 1452, -114, 1452, -121, 1449, -122, 1447, -123, 1448, -125, 1450, -126)
 
-[node name="Beha zemitānos" type="StaticBody2D" parent="Pasaule/statiskais/hitboksi"]
+[node name="Beha zemitānos" type="StaticBody2D" parent="1_Līmenis/Pasaule/statiskais/hitboksi"]
 
-[node name="Poligons saskarnei" type="CollisionPolygon2D" parent="Pasaule/statiskais/hitboksi/Beha zemitānos"]
+[node name="Poligons saskarnei" type="CollisionPolygon2D" parent="1_Līmenis/Pasaule/statiskais/hitboksi/Beha zemitānos"]
 position = Vector2(1647, 0)
 polygon = PackedVector2Array(1447, -121, 1448, -123, 1449, -123, 1449, -128, 1450, -135, 1452, -137, 1454, -137, 1459, -146, 1464, -155, 1511, -155, 1515, -149, 1522, -137, 1524, -136, 1525, -135, 1528, -120, 1522, -117, 1522, -112, 1520, -111, 1514, -111, 1511, -112, 1511, -117, 1464, -117, 1463, -111, 1464, -117, 1463, -111, 1459, -111, 1454, -111, 1453, -112, 1453, -117, 1452, -117, 1450, -118, 1447, -119)
 
-[node name="Rimi busiņš zemitānos" type="StaticBody2D" parent="Pasaule/statiskais/hitboksi"]
+[node name="Rimi busiņš zemitānos" type="StaticBody2D" parent="1_Līmenis/Pasaule/statiskais/hitboksi"]
 
-[node name="Poligons saskarnei" type="CollisionPolygon2D" parent="Pasaule/statiskais/hitboksi/Rimi busiņš zemitānos"]
+[node name="Poligons saskarnei" type="CollisionPolygon2D" parent="1_Līmenis/Pasaule/statiskais/hitboksi/Rimi busiņš zemitānos"]
 polygon = PackedVector2Array(3367, -222, 3453, -222, 3455, -221, 3456, -220, 3457, -219, 3458, -217, 3362, -217, 3363, -219, 3364, -220, 3365, -221)
 one_way_collision = true
 
-[node name="OneWay_platform" type="StaticBody2D" parent="Pasaule/statiskais"]
+[node name="OneWay_platform" type="StaticBody2D" parent="1_Līmenis/Pasaule/statiskais"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Pasaule/statiskais/OneWay_platform"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="1_Līmenis/Pasaule/statiskais/OneWay_platform"]
 position = Vector2(917, -442)
 shape = SubResource("RectangleShape2D_24dk6")
 one_way_collision = true
 debug_color = Color(0.91158634, 0.29585466, 0, 0.41960785)
 
-[node name="kustigais" type="Node" parent="Pasaule"]
+[node name="kustigais" type="Node" parent="1_Līmenis/Pasaule"]
 
-[node name="Neatveramas durvis" parent="Pasaule/kustigais" instance=ExtResource("4_ir8iy")]
+[node name="Neatveramas durvis" parent="1_Līmenis/Pasaule/kustigais" instance=ExtResource("4_ir8iy")]
 position = Vector2(813, -326)
 
-[node name="Neatveramas durvis" parent="Pasaule/kustigais/Neatveramas durvis" instance=ExtResource("4_ir8iy")]
+[node name="Neatveramas durvis" parent="1_Līmenis/Pasaule/kustigais/Neatveramas durvis" instance=ExtResource("4_ir8iy")]
 position = Vector2(0, 159)
 
-[node name="Neatveramas durvis2" parent="Pasaule/kustigais/Neatveramas durvis" instance=ExtResource("4_ir8iy")]
+[node name="Neatveramas durvis2" parent="1_Līmenis/Pasaule/kustigais/Neatveramas durvis" instance=ExtResource("4_ir8iy")]
 position = Vector2(1, -481)
 
-[node name="Neatveramas durvis3" parent="Pasaule/kustigais/Neatveramas durvis" instance=ExtResource("4_ir8iy")]
+[node name="Neatveramas durvis3" parent="1_Līmenis/Pasaule/kustigais/Neatveramas durvis" instance=ExtResource("4_ir8iy")]
 position = Vector2(0, -320)
 
-[node name="Neatveramas durvis4" parent="Pasaule/kustigais/Neatveramas durvis" instance=ExtResource("4_ir8iy")]
+[node name="Neatveramas durvis4" parent="1_Līmenis/Pasaule/kustigais/Neatveramas durvis" instance=ExtResource("4_ir8iy")]
 position = Vector2(208, -481)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 
-[node name="Neatveramas durvis5" parent="Pasaule/kustigais/Neatveramas durvis" instance=ExtResource("4_ir8iy")]
+[node name="Neatveramas durvis5" parent="1_Līmenis/Pasaule/kustigais/Neatveramas durvis" instance=ExtResource("4_ir8iy")]
 position = Vector2(208, -320)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 
-[node name="Neatveramas durvis6" parent="Pasaule/kustigais/Neatveramas durvis" instance=ExtResource("4_ir8iy")]
+[node name="Neatveramas durvis6" parent="1_Līmenis/Pasaule/kustigais/Neatveramas durvis" instance=ExtResource("4_ir8iy")]
 position = Vector2(207, -160)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 
-[node name="Neatveramas durvis7" parent="Pasaule/kustigais/Neatveramas durvis" instance=ExtResource("4_ir8iy")]
+[node name="Neatveramas durvis7" parent="1_Līmenis/Pasaule/kustigais/Neatveramas durvis" instance=ExtResource("4_ir8iy")]
 position = Vector2(206, 0)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 
-[node name="Atvermas durvis" parent="Pasaule/kustigais" instance=ExtResource("17_e8dv2")]
+[node name="Atvermas durvis" parent="1_Līmenis/Pasaule/kustigais" instance=ExtResource("17_e8dv2")]
 position = Vector2(809, -486)
 
-[node name="Atvermas durvis2" parent="Pasaule/kustigais/Atvermas durvis" instance=ExtResource("17_e8dv2")]
+[node name="Atvermas durvis2" parent="1_Līmenis/Pasaule/kustigais/Atvermas durvis" instance=ExtResource("17_e8dv2")]
 position = Vector2(-383, 0)
 
-[node name="Atvermas durvis3" parent="Pasaule/kustigais/Atvermas durvis" instance=ExtResource("17_e8dv2")]
+[node name="Atvermas durvis3" parent="1_Līmenis/Pasaule/kustigais/Atvermas durvis" instance=ExtResource("17_e8dv2")]
 position = Vector2(211, 319)
 scale = Vector2(-1, 1)
 
-[node name="Priekšplāns" type="Node" parent="Pasaule"]
+[node name="Priekšplāns" type="Node" parent="1_Līmenis/Pasaule"]
 
-[node name="priekšplāns" type="TileMapLayer" parent="Pasaule/Priekšplāns"]
+[node name="priekšplāns" type="TileMapLayer" parent="1_Līmenis/Pasaule/Priekšplāns"]
 visible = false
 z_index = 4096
 material = SubResource("ShaderMaterial_1fr6y")
@@ -6634,37 +6636,44 @@ tile_map_data = PackedByteArray("AABrAPz/AAABAB4AAABrAP3/AAABAB8AAABrAP7/AAABACA
 tile_set = SubResource("TileSet_1fr6y")
 script = ExtResource("19_bjha6")
 
-[node name="efekti" type="Node" parent="Pasaule"]
+[node name="efekti" type="Node" parent="1_Līmenis/Pasaule"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Pasaule/efekti"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="1_Līmenis/Pasaule/efekti"]
 environment = SubResource("Environment_x0ka3")
 
-[node name="vinjete" type="ColorRect" parent="Pasaule/efekti"]
+[node name="vinjete" type="ColorRect" parent="1_Līmenis/Pasaule/efekti"]
 z_index = 4096
 material = SubResource("ShaderMaterial_bjha6")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -395.0
-offset_top = -1825.0
-offset_right = 2520.0
-offset_bottom = -940.0
+offset_left = -381.0
+offset_top = -1777.0
+offset_right = 2534.0
+offset_bottom = -892.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Pretinieki" type="Node" parent="."]
+[node name="Pretinieki" type="Node" parent="1_Līmenis"]
 
-[node name="CharacterBody2D2" type="CharacterBody2D" parent="Pretinieki"]
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="1_Līmenis/Pretinieki"]
 z_index = -1
 position = Vector2(-126, -476)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pretinieki/CharacterBody2D2"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="1_Līmenis/Pretinieki/CharacterBody2D2"]
 position = Vector2(1948, 292)
 sprite_frames = SubResource("SpriteFrames_hqns4")
 animation = &"idle"
 frame_progress = 0.40016818
 
+[node name="Lietotāja Saskarne" parent="." instance=ExtResource("25_ebxd8")]
+
+[node name="InventoryUI" parent="." instance=ExtResource("30_24dk6")]
+
+[node name="DebugConsole" parent="." instance=ExtResource("30_2u7jv")]
+
 [node name="Spēlētājs" type="Node2D" parent="."]
+position = Vector2(-126, -477)
 
 [node name="Player" parent="Spēlētājs" groups=["Debug_manager", "saveable"] instance=ExtResource("1_0e48y")]
 z_index = 1
@@ -6706,12 +6715,6 @@ shape = SubResource("RectangleShape2D_2hxjc")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Spēlētājs/House_inside_camera"]
 position = Vector2(1729.5, 356.5)
 shape = SubResource("RectangleShape2D_2u7jv")
-
-[node name="DebugConsole" parent="." instance=ExtResource("30_2u7jv")]
-
-[node name="InventoryUI" parent="." instance=ExtResource("30_24dk6")]
-
-[node name="Lietotāja Saskarne" parent="." instance=ExtResource("25_ebxd8")]
 
 [connection signal="body_entered" from="Spēlētājs/House_inside_camera" to="Spēlētājs/House_inside_camera" method="_on_body_entered"]
 [connection signal="body_exited" from="Spēlētājs/House_inside_camera" to="Spēlētājs/House_inside_camera" method="_on_body_exited"]

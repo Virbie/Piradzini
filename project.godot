@@ -31,6 +31,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Pīrādziņu_Piedzīvojumi"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/version_control/plugin.cfg")
+
 [global_group]
 
 player=""
