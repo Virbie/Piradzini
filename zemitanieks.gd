@@ -20,7 +20,6 @@ func _ready():
 
 func _find_player():
 	player = get_tree().get_first_node_in_group("player")
-	print("player found: ", player)
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -63,11 +62,10 @@ func _chase(_delta):
 
 func _check_transitions():
 	if not is_instance_valid(player):
-		print("player is null!")
 		return
 
 	var dist = global_position.distance_to(player.global_position)
-	print("dist: ", dist, " | detection_range: ", detection_range)
+	# print("dist: ", dist, " | detection_range: ", detection_range)
 
 	match state:
 		State.PATROL:
