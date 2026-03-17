@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://j2hgqnb0qdvr"]
+
+[ext_resource type="Script" uid="uid://cx5qyofospy82" path="res://zemitanieks.gd" id="1_pba07"]
+[ext_resource type="Texture2D" uid="uid://dxvaux07ewxa6" path="res://assets/gopniks/gopniks-02.png" id="2_2rb57"]
+[ext_resource type="Texture2D" uid="uid://3c507kluskks" path="res://assets/gopniks/gopniks-03.png" id="3_g3bu0"]
+[ext_resource type="Texture2D" uid="uid://bex3ts2fxcknj" path="res://assets/gopniks/gopniks-04.png" id="4_cwphr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqns4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2rb57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g3bu0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cwphr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g3bu0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_24dk6"]
+radius = 16.0
+height = 48.0
+
+[node name="Pretinieki" type="Node"]
+
+[node name="zemitanieks" type="CharacterBody2D" parent="." node_paths=PackedStringArray("left_point", "right_point")]
+z_index = -1
+position = Vector2(1960, -200)
+script = ExtResource("1_pba07")
+left_point = NodePath("../patrol_area/LeftPoint")
+right_point = NodePath("../patrol_area/RightPoint")
+
+[node name="zemitanieks_anim" type="AnimatedSprite2D" parent="zemitanieks"]
+sprite_frames = SubResource("SpriteFrames_hqns4")
+animation = &"idle"
+frame_progress = 0.40016818
+
+[node name="zemitanieks_coll" type="CollisionShape2D" parent="zemitanieks"]
+position = Vector2(-8, 16)
+shape = SubResource("CapsuleShape2D_24dk6")
+
+[node name="patrol_area" type="Marker2D" parent="."]
+position = Vector2(1960, -150)
+
+[node name="LeftPoint" type="Marker2D" parent="patrol_area"]
+position = Vector2(-250, 0)
+
+[node name="RightPoint" type="Marker2D" parent="patrol_area"]
+position = Vector2(250, 0)
