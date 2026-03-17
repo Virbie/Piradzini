@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlahsa3ok0qfv"
-path="res://.godot/imported/krumi.png-c34ff8ac643c2c064c295bbfcd3e790e.ctex"
+uid="uid://csodmbpoh0m13"
+path="res://.godot/imported/Hitboksi.png-7a9d6b6844708dc3603a5074ab0fad7f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/krumi.png"
-dest_files=["res://.godot/imported/krumi.png-c34ff8ac643c2c064c295bbfcd3e790e.ctex"]
+source_file="res://assets/Hitboksi.png"
+dest_files=["res://.godot/imported/Hitboksi.png-7a9d6b6844708dc3603a5074ab0fad7f.ctex"]
 
 [params]
 
