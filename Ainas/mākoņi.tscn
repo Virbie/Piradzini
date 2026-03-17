@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://i3xorqnnxjj5"]
+
+[ext_resource type="Texture2D" uid="uid://b6j0je6nqri08" path="res://assets/makoni.png" id="1_3csik"]
+
+[node name="Mākoņi" type="Parallax2D"]
+scroll_scale = Vector2(0, 1)
+repeat_size = Vector2(640, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -4096
+position = Vector2(1530, -953)
+texture = ExtResource("1_3csik")

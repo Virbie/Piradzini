@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Pīrādziņu_Piedzīvojumi"
-run/main_scene="res://node_2d.tscn"
+run/main_scene="res://Ainas/node_2d.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-CurrencyManager="*res://CurrencyManager.gd"
-SaveManager="*res://SaveManager.gd"
+CurrencyManager="*res://Skripti/CurrencyManager.gd"
+SaveManager="*res://Skripti/SaveManager.gd"
 Inventory="*res://autoload/inventory.gd"
 
 [display]

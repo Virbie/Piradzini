@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpvltch70e534"]
+
+[ext_resource type="Texture2D" uid="uid://djls4dm7d3i2y" path="res://assets/durvis.png" id="1_577au"]
+
+[node name="Neatveramas durvis" type="StaticBody2D"]
+
+[node name="neatveramas durvis" type="Sprite2D" parent="."]
+texture = ExtResource("1_577au")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, 39, -11, -24, -4, -24, -4, 40, -12, 40)

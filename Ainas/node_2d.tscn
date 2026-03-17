@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://ch73di6uysh7m"]
+
+[ext_resource type="PackedScene" uid="uid://bya2yl5722ai6" path="res://Ainas/pasaule.tscn" id="1_j6a3j"]
+[ext_resource type="PackedScene" uid="uid://j2hgqnb0qdvr" path="res://Ainas/pretinieki.tscn" id="2_t78xy"]
+[ext_resource type="PackedScene" uid="uid://dt0wgqngxqms" path="res://ui/general_ui/player_ui.tscn" id="3_f70ap"]
+[ext_resource type="PackedScene" uid="uid://bjd0kxqurnxrx" path="res://ui/inventory/inventory_ui.tscn" id="4_v6kiu"]
+[ext_resource type="PackedScene" uid="uid://d1qxbwfa62ohd" path="res://ui/atkukainosans_saskarne/debug_console.tscn" id="5_4626d"]
+[ext_resource type="PackedScene" uid="uid://qfsjh6oidbmh" path="res://Ainas/spēlētājs.tscn" id="6_hyoiv"]
+
+[node name="Spēle" type="Node"]
+
+[node name="1_Līmenis" type="Node2D" parent="."]
+position = Vector2(-126, -477)
+
+[node name="Pasaule" parent="1_Līmenis" instance=ExtResource("1_j6a3j")]
+
+[node name="Pretinieki" parent="1_Līmenis" instance=ExtResource("2_t78xy")]
+
+[node name="Lietotāja Saskarne" parent="." instance=ExtResource("3_f70ap")]
+
+[node name="InventoryUI" parent="." instance=ExtResource("4_v6kiu")]
+
+[node name="DebugConsole" parent="." instance=ExtResource("5_4626d")]
+
+[node name="Spēlētājs" parent="." instance=ExtResource("6_hyoiv")]
+position = Vector2(-126, -477)
