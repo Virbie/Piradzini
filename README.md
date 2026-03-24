@@ -39,5 +39,8 @@ Projekts tiks veidots spēles dzinējā "Godot", izmantojot tā iebūveto valodu
 | 28.04.2026 | izveidot ēnas, ūdeni un citus shaders kā arī statisko objektu animācijas | Iekārtot spēlē vietas no kurām iespējams nokļūt uz citām zonām. | Apraksts |
 | 05.05.2026 | testēt esošo projektu un mainīt kā arī uzlabot mākslas stilu kur nepieciešams| Veikt spēles testēšanu un atrisināt atrastās problēmas. | Apraksts |
 
+# Sagaidāmais rezultāts
+Visas sienas, līdz circle K ir cietas un strādājošas(izņemot logs), kāpņu telpā platformas strādā kā vienvirziena platformas, ir strādājoša konsole un inventāra saraksts, ir strādājošas dzīvības un  valūtas sistēma, kameras kustība tuvplānā 1. ēkā. gopņiks seko spēlētājam tuvumā un atgriežas mājās ja gribās.
+
 # UML Sekvences Diagramma - karte, pārvietošanās
 ![UML Sekvences Diagramma - karte, pārvietošanās](Sekvences_diagramma.png)
