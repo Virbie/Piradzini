@@ -1,6 +1,6 @@
 extends Node2D  # or TileMap/Sprite
 
-@export var depth_factor: float = 0.96  # <1 = farther moves slower
+@export var depth_factor: float = 1  # <1 = farther moves slower
 var camera_node: Camera2D
 var original_position: Vector2
 
