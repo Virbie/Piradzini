@@ -25,19 +25,19 @@ Projekts tiks veidots spēles dzinējā "Godot", izmantojot tā iebūveto valodu
 # Darba Plāns
 | Datums | Edgars - Darba apraksts | Rihards - Darba apraksts | Bruno - Darba apraksts |
 | ----------- | ----------- | ----------- | ----------- | 
-| 10.02.2026 | Izveidot zemitānu 1. daudzdzīvokļu māju, un pagalmu | Nostiprināt spēles sākuma iestatījumus, izvērtējot kādas problēmas var vēlāk parādīities tās veidošanā. | Izveidot pirmajam pretinieku tipam hitbox un roaming | 
-| 17.02.2026 | Pilnveidot fonu, pievienot miglas efektu, izveidot UI | Salabot nevēlāmās animācijas un problēmas ar tēla kustību. | Apraksts |
-| 24.02.2026 | Izveidot zemitānus līdz stacijai | Izveidot galvenajam varonim dažādas papildus kustības, kā piemēram, (dash, wall jumo, utt.) | Apraksts |
-| 03.03.2026 | Pilnveidot zemitānus izveidot animācijas | Izveidot līdzkustīgus, ieskaujošus fonus. | Apraksts |
-| 10.03.2026 | izveidot animācijas zemitānu pretiniekiem kā arī spēlētājam un UI elementiem | Uzlabot animācijas, tēla reaģētspēju uz nospiestiem taustiņiem u.c., lai pēc iespējas vairāk uzlabotu spēlēšanas sajūtu.| Apraksts |
-| 17.03.2026 | izveidot Origo līmeņa uzmetumu un pretiniekus | Ieviest dažādas iespējas spēlētājam mijiedarboties ar apkārtējo vidi un priekšmetiem. | Apraksts |
-| 24.03.2026 | pilnveidot origo līmeni un pretinieku animācijas | Izveidot dažādus priekšmetus, kuri pilda konkrētu funkcija, kad ar tiem mijiedarbojas. | Apraksts |
-| 31.03.2026 | izveidot centrāltirgus līmeni un pretiniekus | Izveidot spēlētāja somu(inventory), kurā iespējams ievietot mantas. | Apraksts |
-| 07.04.2026 | pilnveidot centrāltirgu un pretinieku animācijas | Izstrādāt dažādas mantas ar atribūtiem, kuras ir iespējams spēlētājam pielietot. | Apraksts |
-| 14.04.2026 | izveidot pazemes zonu | Izveidot sistēmu, kas nodrošina progresa, mantu saglabāšanu pēc spēles izslēgšanas uz spēlētāja datora lokāli. | Apraksts |
-| 21.04.2026 | izveidot veikala UI, animācijas un spēlētāja animācijas jauniem atribūtiem | Spēlē ievietot izveidoto mūziku un skaņas efektus. | Apraksts |
-| 28.04.2026 | izveidot ēnas, ūdeni un citus shaders kā arī statisko objektu animācijas | Iekārtot spēlē vietas no kurām iespējams nokļūt uz citām zonām. | Apraksts |
-| 05.05.2026 | testēt esošo projektu un mainīt kā arī uzlabot mākslas stilu kur nepieciešams| Veikt spēles testēšanu un atrisināt atrastās problēmas. | Apraksts |
+| 10.02.2026 | Izveidot zemitānu 1. daudzdzīvokļu māju, un pagalmu | Nostiprināt spēles sākuma iestatījumus, izvērtējot kādas problēmas var vēlāk parādīities tās veidošanā. | Izpētīt pretinieku AI veidošanas iespējas un to sasaisti ar spelētāju internetā | 
+| 17.02.2026 | Pilnveidot fonu, pievienot miglas efektu, izveidot UI | Salabot nevēlāmās animācijas un problēmas ar tēla kustību. | Izveidot pirmajam pretinieku tipam hitbox un roaming |
+| 24.02.2026 | Izveidot zemitānus līdz stacijai | Izveidot galvenajam varonim dažādas papildus kustības, kā piemēram, (dash, wall jumo, utt.) | Izveidot pretiniekam uzbrukšanas sistēmu |
+| 03.03.2026 | Pilnveidot zemitānus izveidot animācijas | Izveidot līdzkustīgus, ieskaujošus fonus. | Izveidot spēletāja un pretinieka mijiedarbības vidi, dzīvību atņemšana |
+| 10.03.2026 | izveidot animācijas zemitānu pretiniekiem kā arī spēlētājam un UI elementiem | Uzlabot animācijas, tēla reaģētspēju uz nospiestiem taustiņiem u.c., lai pēc iespējas vairāk uzlabotu spēlēšanas sajūtu.| Ievietot pretiniekam animācijas un vairākus uzbrukuma tipus |
+| 17.03.2026 | izveidot Origo līmeņa uzmetumu un pretiniekus | Ieviest dažādas iespējas spēlētājam mijiedarboties ar apkārtējo vidi un priekšmetiem. | Izveidot AI vēl otram pretinieku tipam |
+| 24.03.2026 | pilnveidot origo līmeni un pretinieku animācijas | Izveidot dažādus priekšmetus, kuri pilda konkrētu funkcija, kad ar tiem mijiedarbojas. | Pievienot animācijas un mijiedarbību ar spēlētāju |
+| 31.03.2026 | izveidot centrāltirgus līmeni un pretiniekus | Izveidot spēlētāja somu(inventory), kurā iespējams ievietot mantas. | ievietot spēlētājam papildus uzbrukuma veidus un tā saskarni ar pretiniekiem |
+| 07.04.2026 | pilnveidot centrāltirgu un pretinieku animācijas | Izstrādāt dažādas mantas ar atribūtiem, kuras ir iespējams spēlētājam pielietot. | Sākt veidot loģiku zonas bosam un iespējamajiem uzbrukumiem |
+| 14.04.2026 | izveidot pazemes zonu | Izveidot sistēmu, kas nodrošina progresa, mantu saglabāšanu pēc spēles izslēgšanas uz spēlētāja datora lokāli. | Ievietot animācijas un sprite, arī gājienus |
+| 21.04.2026 | izveidot veikala UI, animācijas un spēlētāja animācijas jauniem atribūtiem | Spēlē ievietot izveidoto mūziku un skaņas efektus. | Sakārtot mijiedarbību starp bosa pretinieku un spēlētāju |
+| 28.04.2026 | izveidot ēnas, ūdeni un citus shaders kā arī statisko objektu animācijas | Iekārtot spēlē vietas no kurām iespējams nokļūt uz citām zonām. | Pieslīpēt pretiniekiem lietas un pabeigt visu pārējo |
+| 05.05.2026 | testēt esošo projektu un mainīt kā arī uzlabot mākslas stilu kur nepieciešams| Veikt spēles testēšanu un atrisināt atrastās problēmas. | Veikt beigu testēšanu un veikt labojumus pēc nepieciešamības |
 
 # Sagaidāmais rezultāts
 Visas sienas, līdz circle K ir cietas un strādājošas(izņemot logs), kāpņu telpā platformas strādā kā vienvirziena platformas, ir strādājoša konsole un inventāra saraksts, ir strādājošas dzīvības un  valūtas sistēma, kameras kustība tuvplānā 1. ēkā. gopņiks seko spēlētājam tuvumā un atgriežas mājās ja gribās.
