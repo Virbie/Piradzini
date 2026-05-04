@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://bya2yl5722ai6"]
+[gd_scene format=4 uid="uid://bya2yl5722ai6"]
 
 [ext_resource type="PackedScene" uid="uid://i3xorqnnxjj5" path="res://Ainas/mākoņi.tscn" id="1_87tj1"]
 [ext_resource type="PackedScene" uid="uid://dkkxtlnnx7b7g" path="res://Ainas/parallax_2d.tscn" id="1_kuacd"]
@@ -6609,20 +6609,20 @@ shader = ExtResource("21_wphr4")
 shader_parameter/RADIUS = 0.25
 shader_parameter/SOFTNESS = 0.5
 
-[node name="Pasaule" type="Node"]
+[node name="Pasaule" type="Node" unique_id=1770152993]
 
-[node name="fons" type="Node" parent="."]
+[node name="fons" type="Node" parent="." unique_id=826686975]
 
-[node name="Mākoņi" parent="fons" instance=ExtResource("1_87tj1")]
+[node name="Mākoņi" parent="fons" unique_id=550538169 instance=ExtResource("1_87tj1")]
 
-[node name="debesis" parent="fons" instance=ExtResource("1_kuacd")]
+[node name="debesis" parent="fons" unique_id=755078145 instance=ExtResource("1_kuacd")]
 z_index = -4096
 scroll_scale = Vector2(0, 1)
 scroll_offset = Vector2(684, -1575)
 
-[node name="pats fons" type="Node" parent="fons"]
+[node name="pats fons" type="Node" parent="fons" unique_id=24276094]
 
-[node name="tālais_fons" type="TileMapLayer" parent="fons/pats fons"]
+[node name="tālais_fons" type="TileMapLayer" parent="fons/pats fons" unique_id=1902077066]
 z_index = -4096
 material = SubResource("ShaderMaterial_flf07")
 use_parent_material = true
@@ -6632,7 +6632,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 script = ExtResource("7_s8hng")
 
-[node name="Tālākā_zeme" type="TileMapLayer" parent="fons/pats fons"]
+[node name="Tālākā_zeme" type="TileMapLayer" parent="fons/pats fons" unique_id=1359350697]
 z_index = -803
 material = SubResource("ShaderMaterial_flf07")
 use_parent_material = true
@@ -6643,7 +6643,7 @@ rendering_quadrant_size = 32
 collision_enabled = false
 script = ExtResource("8_0qysr")
 
-[node name="tālākie objekti" type="TileMapLayer" parent="fons/pats fons"]
+[node name="tālākie objekti" type="TileMapLayer" parent="fons/pats fons" unique_id=1788471272]
 z_index = -752
 material = SubResource("ShaderMaterial_flf07")
 use_parent_material = true
@@ -6654,7 +6654,7 @@ rendering_quadrant_size = 32
 collision_enabled = false
 script = ExtResource("8_0qysr")
 
-[node name="ceturtā_zeme" type="TileMapLayer" parent="fons/pats fons"]
+[node name="ceturtā_zeme" type="TileMapLayer" parent="fons/pats fons" unique_id=1733197395]
 z_index = -803
 material = SubResource("ShaderMaterial_flf07")
 use_parent_material = true
@@ -6664,7 +6664,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="Trešā_zeme" type="TileMapLayer" parent="fons/pats fons"]
+[node name="Trešā_zeme" type="TileMapLayer" parent="fons/pats fons" unique_id=1071064940]
 z_index = -802
 material = SubResource("ShaderMaterial_ta5nu")
 use_parent_material = true
@@ -6674,7 +6674,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="Otrā_zeme" type="TileMapLayer" parent="fons/pats fons"]
+[node name="Otrā_zeme" type="TileMapLayer" parent="fons/pats fons" unique_id=1044907978]
 z_index = -801
 material = SubResource("ShaderMaterial_d2bti")
 use_parent_material = true
@@ -6684,7 +6684,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="Priekšējā_fona zeme" type="TileMapLayer" parent="fons/pats fons"]
+[node name="Priekšējā_fona zeme" type="TileMapLayer" parent="fons/pats fons" unique_id=1236133685]
 z_index = -800
 material = SubResource("ShaderMaterial_nr8wp")
 use_parent_material = true
@@ -6694,7 +6694,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="Trešais_objektu_līmenis" type="TileMapLayer" parent="fons/pats fons"]
+[node name="Trešais_objektu_līmenis" type="TileMapLayer" parent="fons/pats fons" unique_id=1143681544]
 z_index = -750
 material = SubResource("ShaderMaterial_ta5nu")
 use_parent_material = true
@@ -6704,7 +6704,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 script = ExtResource("10_qda6p")
 
-[node name="otrais_objektu_līmenis" type="TileMapLayer" parent="fons/pats fons"]
+[node name="otrais_objektu_līmenis" type="TileMapLayer" parent="fons/pats fons" unique_id=1790055915]
 z_index = -749
 material = SubResource("ShaderMaterial_d2bti")
 use_parent_material = true
@@ -6714,7 +6714,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="Pirmais_objektu_līmenis" type="TileMapLayer" parent="fons/pats fons"]
+[node name="Pirmais_objektu_līmenis" type="TileMapLayer" parent="fons/pats fons" unique_id=328209162]
 z_index = -748
 material = SubResource("ShaderMaterial_d2bti")
 use_parent_material = true
@@ -6724,7 +6724,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 script = ExtResource("12_3rnk4")
 
-[node name="Priekšplāna_fona_obj" type="TileMapLayer" parent="fons/pats fons"]
+[node name="Priekšplāna_fona_obj" type="TileMapLayer" parent="fons/pats fons" unique_id=1110742469]
 z_index = -740
 material = SubResource("ShaderMaterial_nr8wp")
 use_parent_material = true
@@ -6734,9 +6734,9 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 script = ExtResource("14_qs47f")
 
-[node name="statiskais" type="Node" parent="."]
+[node name="statiskais" type="Node" parent="." unique_id=213601126]
 
-[node name="Sienu_tapetes_n fons iekštelpam" type="TileMapLayer" parent="statiskais"]
+[node name="Sienu_tapetes_n fons iekštelpam" type="TileMapLayer" parent="statiskais" unique_id=889095957]
 z_index = -501
 material = SubResource("ShaderMaterial_2nhjh")
 use_parent_material = true
@@ -6746,7 +6746,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="zeme_sienas_n_viss_tas_umph" type="TileMapLayer" parent="statiskais"]
+[node name="zeme_sienas_n_viss_tas_umph" type="TileMapLayer" parent="statiskais" unique_id=1056722336]
 z_index = -500
 material = SubResource("ShaderMaterial_e8dv2")
 use_parent_material = true
@@ -6756,7 +6756,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="Viss_kas_ir_pie_uz_siena" type="TileMapLayer" parent="statiskais"]
+[node name="Viss_kas_ir_pie_uz_siena" type="TileMapLayer" parent="statiskais" unique_id=1240532178]
 z_index = -500
 material = SubResource("ShaderMaterial_ei405")
 use_parent_material = true
@@ -6766,7 +6766,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="fona_mebeles_n_koki" type="TileMapLayer" parent="statiskais"]
+[node name="fona_mebeles_n_koki" type="TileMapLayer" parent="statiskais" unique_id=1684477402]
 z_index = -100
 material = SubResource("ShaderMaterial_7vxoj")
 use_parent_material = true
@@ -6775,7 +6775,7 @@ tile_map_data = PackedByteArray("AABzABAAAAAAAAkAAACOABAAAAAAAAkAAACZABAAAAAAAAk
 tile_set = SubResource("TileSet_0hol4")
 collision_enabled = false
 
-[node name="Tieši_priekšā_margas_barjeras_objekti" type="TileMapLayer" parent="statiskais"]
+[node name="Tieši_priekšā_margas_barjeras_objekti" type="TileMapLayer" parent="statiskais" unique_id=591126381]
 z_index = 100
 use_parent_material = true
 position = Vector2(-125, -478)
@@ -6785,7 +6785,7 @@ rendering_quadrant_size = 32
 collision_enabled = false
 physics_quadrant_size = 32
 
-[node name="talak _priekša_vai_bick_prieksa_ieprieksejam" type="TileMapLayer" parent="statiskais"]
+[node name="talak _priekša_vai_bick_prieksa_ieprieksejam" type="TileMapLayer" parent="statiskais" unique_id=806041828]
 z_index = 101
 material = SubResource("ShaderMaterial_k73cj")
 use_parent_material = true
@@ -6795,7 +6795,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="aiz_pasas_prieksas" type="TileMapLayer" parent="statiskais"]
+[node name="aiz_pasas_prieksas" type="TileMapLayer" parent="statiskais" unique_id=190213545]
 z_index = 100
 material = SubResource("ShaderMaterial_rjqkl")
 use_parent_material = true
@@ -6805,7 +6805,7 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="pats_prieksplans_kip_kapnes_utt" type="TileMapLayer" parent="statiskais"]
+[node name="pats_prieksplans_kip_kapnes_utt" type="TileMapLayer" parent="statiskais" unique_id=681813826]
 z_index = 102
 material = SubResource("ShaderMaterial_fs4d3")
 use_parent_material = true
@@ -6815,141 +6815,142 @@ tile_set = SubResource("TileSet_0hol4")
 rendering_quadrant_size = 32
 collision_enabled = false
 
-[node name="hitboksi" type="Node" parent="statiskais"]
+[node name="hitboksi" type="Node" parent="statiskais" unique_id=1398365756]
 
-[node name="Zilais moskvičš zemitānos" type="StaticBody2D" parent="statiskais/hitboksi"]
+[node name="Zilais moskvičš zemitānos" type="StaticBody2D" parent="statiskais/hitboksi" unique_id=879866522]
 
-[node name="Poligons saskarnei" type="CollisionPolygon2D" parent="statiskais/hitboksi/Zilais moskvičš zemitānos"]
+[node name="Poligons saskarnei" type="CollisionPolygon2D" parent="statiskais/hitboksi/Zilais moskvičš zemitānos" unique_id=233959657]
 polygon = PackedVector2Array(1450, -124, 1450, -143, 1454, -146, 1456, -151, 1457, -163, 1460, -166, 1513, -166, 1516, -163, 1518, -150, 1519, -146, 1523, -143, 1523, -127, 1525, -125, 1525, -123, 1523, -121, 1522, -113, 1520, -111, 1514, -111, 1513, -114, 1513, -117, 1460, -117, 1460, -113, 1459, -111, 1453, -111, 1452, -114, 1452, -121, 1449, -122, 1447, -123, 1448, -125, 1450, -126)
 
-[node name="Beha zemitānos" type="StaticBody2D" parent="statiskais/hitboksi"]
+[node name="Beha zemitānos" type="StaticBody2D" parent="statiskais/hitboksi" unique_id=1772819865]
 
-[node name="Poligons saskarnei" type="CollisionPolygon2D" parent="statiskais/hitboksi/Beha zemitānos"]
+[node name="Poligons saskarnei" type="CollisionPolygon2D" parent="statiskais/hitboksi/Beha zemitānos" unique_id=1025178678]
 position = Vector2(1647, 0)
 polygon = PackedVector2Array(1447, -121, 1448, -123, 1449, -123, 1449, -128, 1450, -135, 1452, -137, 1454, -137, 1459, -146, 1464, -155, 1511, -155, 1515, -149, 1522, -137, 1524, -136, 1525, -135, 1528, -120, 1522, -117, 1522, -112, 1520, -111, 1514, -111, 1511, -112, 1511, -117, 1464, -117, 1463, -111, 1464, -117, 1463, -111, 1459, -111, 1454, -111, 1453, -112, 1453, -117, 1452, -117, 1450, -118, 1447, -119)
 
-[node name="Rimi busiņš zemitānos" type="StaticBody2D" parent="statiskais/hitboksi"]
+[node name="Rimi busiņš zemitānos" type="StaticBody2D" parent="statiskais/hitboksi" unique_id=793166816]
 
-[node name="Poligons saskarnei" type="CollisionPolygon2D" parent="statiskais/hitboksi/Rimi busiņš zemitānos"]
+[node name="Poligons saskarnei" type="CollisionPolygon2D" parent="statiskais/hitboksi/Rimi busiņš zemitānos" unique_id=1072530490]
 polygon = PackedVector2Array(3367, -222, 3453, -222, 3455, -221, 3456, -220, 3457, -219, 3458, -217, 3362, -217, 3363, -219, 3364, -220, 3365, -221)
 one_way_collision = true
 
-[node name="Beha benzintanks" type="StaticBody2D" parent="statiskais/hitboksi"]
+[node name="Beha benzintanks" type="StaticBody2D" parent="statiskais/hitboksi" unique_id=264374954]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="statiskais/hitboksi/Beha benzintanks"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="statiskais/hitboksi/Beha benzintanks" unique_id=496867232]
 polygon = PackedVector2Array(5008, -111, 5009, -112, 5009, -117, 5012, -117, 5015, -119, 5015, -121, 5013, -126, 5010, -126, 5010, -137, 4998, -155, 4951, -155, 4939, -137, 4936, -123, 4934, -121, 4934, -119, 4940, -117, 4940, -112, 4941, -111)
 
-[node name="OneWay_platform" type="StaticBody2D" parent="statiskais/hitboksi"]
+[node name="OneWay_platform" type="StaticBody2D" parent="statiskais/hitboksi" unique_id=427584387]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform" unique_id=353072786]
 texture_repeat = 1
 position = Vector2(917, -448)
 shape = SubResource("RectangleShape2D_24dk6")
 one_way_collision = true
 debug_color = Color(0.91158634, 0.29585466, 0, 0.41960785)
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform"]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform" unique_id=1373052159]
 texture_repeat = 1
 position = Vector2(858, -524)
 shape = SubResource("RectangleShape2D_m2it7")
 one_way_collision = true
 debug_color = Color(0.91158634, 0.29585466, 0, 0.41960785)
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform" unique_id=169668548]
 position = Vector2(914, -288)
 shape = SubResource("RectangleShape2D_24dk6")
 one_way_collision = true
 debug_color = Color(0.91158634, 0.29585466, 0, 0.41960785)
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform" unique_id=961133249]
 position = Vector2(918, -608)
 shape = SubResource("RectangleShape2D_24dk6")
 one_way_collision = true
 debug_color = Color(0.91158634, 0.29585466, 0, 0.41960785)
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform"]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform" unique_id=1654767562]
 position = Vector2(917, -761)
 shape = SubResource("RectangleShape2D_24dk6")
 one_way_collision = true
 debug_color = Color(0.91158634, 0.29585466, 0, 0.41960785)
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform"]
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform" unique_id=1191762886]
 texture_repeat = 1
 position = Vector2(971, -687)
 shape = SubResource("RectangleShape2D_m2it7")
 one_way_collision = true
 debug_color = Color(0.91158634, 0.29585466, 0, 0.41960785)
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform"]
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform" unique_id=1114612580]
 texture_repeat = 1
 position = Vector2(973, -364)
 shape = SubResource("RectangleShape2D_m2it7")
 one_way_collision = true
 debug_color = Color(0.91158634, 0.29585466, 0, 0.41960785)
 
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform"]
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="statiskais/hitboksi/OneWay_platform" unique_id=1001900883]
 texture_repeat = 1
 position = Vector2(858, -204)
 shape = SubResource("RectangleShape2D_m2it7")
 one_way_collision = true
 debug_color = Color(0.91158634, 0.29585466, 0, 0.41960785)
 
-[node name="Sitkastes visam" type="TileMapLayer" parent="statiskais"]
+[node name="Sitkastes visam" type="TileMapLayer" parent="statiskais" unique_id=1364036116]
+visible = false
 z_index = 4096
 position = Vector2(3, 2)
 tile_map_data = PackedByteArray("AAAGAOT/AAAAAAAAAAAHAOT/AAAAAAAAAAAIAOT/AAAAAAAAAAAJAOT/AAAAAAAAAAAKAOT/AAAAAAAAAAALAOT/AAAAAAAAAAAMAOT/AAAAAAAAAAANAOT/AAAAAAAAAAAOAOT/AAAAAAAAAAAPAOT/AAAAAAAAAAAQAOT/AAAAAAAAAAARAOT/AAAAAAAAAAASAOT/AAAAAAAAAAATAOT/AAAAAAAAAAAUAOT/AAAAAAAAAAAVAOT/AAAAAAAAAAAWAOT/AAAAAAAAAAAXAOT/AAAAAAAAAAAYAOT/AAAAAAAAAAAZAOT/AAAAAAAAAAAaAOT/AAAAAAAAAAAbAOT/AAAAAAAAAAAcAOT/AAAAAAAAAAAdAOT/AAAAAAAAAAAeAOT/AAAAAAAAAAAfAOT/AAAAAAAAAAAgAOT/AAAAAAAAAAAhAOT/AAAAAAAAAAAiAOT/AAAAAAAAAAAjAOT/AAAAAAAAAAAkAOT/AAAAAAAAAAAlAOT/AAAAAAAAAAAmAOT/AAAAAAAAAAAnAOT/AAAAAAAAAAAoAOT/AAAAAAAAAAApAOT/AAAAAAAAAAAqAOT/AAAAAAAAAAArAOT/AAAAAAAAAAAsAOT/AAAAAAAAAAAtAOT/AAAAAAAAAAAuAOT/AAAAAAAAAAAvAOT/AAAAAAAAAAAwAOT/AAAAAAAAAAAxAOT/AAAAAAAAAAAyAOT/AAAAAAAAAAAyAOX/AAAAAAAAAAAyAOb/AAAAAAAAAAAyAOf/AAAAAAAAAAAyAOj/AAAAAAAAAAAyAOn/AAAAAAAAAAAyAN//AAAAAAAAAAAyAN7/AAAAAAAAAAAyAN3/AAAAAAAAAAAyANz/AAAAAAAAAAA/AOn/AAAAAAAAAAA/AOj/AAAAAAAAAAA/AOf/AAAAAAAAAAA/AOb/AAAAAAAAAAA/AOX/AAAAAAAAAAA/AOT/AAAAAAAAAABAAOT/AAAAAAAAAABBAOT/AAAAAAAAAABCAOT/AAAAAAAAAABDAOT/AAAAAAAAAABEAOT/AAAAAAAAAABBAOX/AAAAAAAAAABBAOb/AAAAAAAAAABBAOf/AAAAAAAAAABBAOj/AAAAAAAAAABBAOn/AAAAAAAAAABAAOn/AAAAAAAAAAA/AN//AAAAAAAAAAA/AN7/AAAAAAAAAAA/AN3/AAAAAAAAAAA/ANz/AAAAAAAAAAA/ANv/AAAAAAAAAAA/ANr/AAAAAAAAAABAANr/AAAAAAAAAABBANr/AAAAAAAAAABCANr/AAAAAAAAAABDANr/AAAAAAAAAABEANr/AAAAAAAAAABBANv/AAAAAAAAAABBANz/AAAAAAAAAABBAN3/AAAAAAAAAABBAN7/AAAAAAAAAABAAN//AAAAAAAAAABBAN//AAAAAAAAAAA/ANX/AAAAAAAAAAA/ANT/AAAAAAAAAAA/ANP/AAAAAAAAAAA/ANL/AAAAAAAAAAA/ANH/AAAAAAAAAAA/AND/AAAAAAAAAABAAND/AAAAAAAAAABBAND/AAAAAAAAAABCAND/AAAAAAAAAABDAND/AAAAAAAAAABEAND/AAAAAAAAAABBANH/AAAAAAAAAABBANL/AAAAAAAAAABBANP/AAAAAAAAAABBANT/AAAAAAAAAABBANX/AAAAAAAAAABAANX/AAAAAAAAAAA/AMv/AAAAAAAAAAA/AMr/AAAAAAAAAAA/AMn/AAAAAAAAAAA/AMj/AAAAAAAAAAA/AMf/AAAAAAAAAABAAMv/AAAAAAAAAABBAMv/AAAAAAAAAABBAMr/AAAAAAAAAABBAMn/AAAAAAAAAABBAMj/AAAAAAAAAABBAMf/AAAAAAAAAABBAMb/AAAAAAAAAABBAMX/AAAAAAAAAABAAMX/AAAAAAAAAAA/AMX/AAAAAAAAAAA+AMX/AAAAAAAAAAA9AMX/AAAAAAAAAAA8AMX/AAAAAAAAAAA7AMX/AAAAAAAAAAA6AMX/AAAAAAAAAAA5AMX/AAAAAAAAAAA4AMX/AAAAAAAAAAA3AMX/AAAAAAAAAAA2AMX/AAAAAAAAAAA1AMX/AAAAAAAAAAA0AMX/AAAAAAAAAAAzAMX/AAAAAAAAAAAyAMX/AAAAAAAAAAAyAMv/AAAAAAAAAAAyAMr/AAAAAAAAAAAyAMn/AAAAAAAAAAAyAMj/AAAAAAAAAAAyAMf/AAAAAAAAAAAzAMf/AAAAAAAAAAA0AMf/AAAAAAAAAAA1AMf/AAAAAAAAAAA2AMf/AAAAAAAAAAA3AMf/AAAAAAAAAAA4AMf/AAAAAAAAAAA5AMf/AAAAAAAAAAA6AMf/AAAAAAAAAAA7AMf/AAAAAAAAAAA8AMf/AAAAAAAAAAA9AMf/AAAAAAAAAAA+AMf/AAAAAAAA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")
 tile_set = SubResource("TileSet_hjpc5")
 physics_quadrant_size = 32
 
-[node name="kustigais" type="Node" parent="."]
+[node name="kustigais" type="Node" parent="." unique_id=571074568]
 
-[node name="Neatveramas durvis" parent="kustigais" instance=ExtResource("17_scp37")]
+[node name="Neatveramas durvis" parent="kustigais" unique_id=560195651 instance=ExtResource("17_scp37")]
 position = Vector2(813, -326)
 
-[node name="Neatveramas durvis" parent="kustigais/Neatveramas durvis" instance=ExtResource("17_scp37")]
+[node name="Neatveramas durvis" parent="kustigais/Neatveramas durvis" unique_id=1707674424 instance=ExtResource("17_scp37")]
 position = Vector2(0, 159)
 
-[node name="Neatveramas durvis2" parent="kustigais/Neatveramas durvis" instance=ExtResource("17_scp37")]
+[node name="Neatveramas durvis2" parent="kustigais/Neatveramas durvis" unique_id=1045193831 instance=ExtResource("17_scp37")]
 position = Vector2(1, -481)
 
-[node name="Neatveramas durvis3" parent="kustigais/Neatveramas durvis" instance=ExtResource("17_scp37")]
+[node name="Neatveramas durvis3" parent="kustigais/Neatveramas durvis" unique_id=1190013827 instance=ExtResource("17_scp37")]
 position = Vector2(0, -320)
 
-[node name="Neatveramas durvis4" parent="kustigais/Neatveramas durvis" instance=ExtResource("17_scp37")]
+[node name="Neatveramas durvis4" parent="kustigais/Neatveramas durvis" unique_id=1202796173 instance=ExtResource("17_scp37")]
 position = Vector2(208, -481)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 
-[node name="Neatveramas durvis5" parent="kustigais/Neatveramas durvis" instance=ExtResource("17_scp37")]
+[node name="Neatveramas durvis5" parent="kustigais/Neatveramas durvis" unique_id=386889404 instance=ExtResource("17_scp37")]
 position = Vector2(208, -320)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 
-[node name="Neatveramas durvis6" parent="kustigais/Neatveramas durvis" instance=ExtResource("17_scp37")]
+[node name="Neatveramas durvis6" parent="kustigais/Neatveramas durvis" unique_id=1860469458 instance=ExtResource("17_scp37")]
 position = Vector2(207, -160)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 
-[node name="Neatveramas durvis7" parent="kustigais/Neatveramas durvis" instance=ExtResource("17_scp37")]
+[node name="Neatveramas durvis7" parent="kustigais/Neatveramas durvis" unique_id=705738121 instance=ExtResource("17_scp37")]
 position = Vector2(206, 0)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 
-[node name="Atvermas durvis" parent="kustigais" instance=ExtResource("18_2qpin")]
+[node name="Atvermas durvis" parent="kustigais" unique_id=371634414 instance=ExtResource("18_2qpin")]
 position = Vector2(809, -486)
 
-[node name="Atvermas durvis2" parent="kustigais/Atvermas durvis" instance=ExtResource("18_2qpin")]
+[node name="Atvermas durvis2" parent="kustigais/Atvermas durvis" unique_id=1827612751 instance=ExtResource("18_2qpin")]
 position = Vector2(-383, 0)
 
-[node name="Atvermas durvis3" parent="kustigais/Atvermas durvis" instance=ExtResource("18_2qpin")]
+[node name="Atvermas durvis3" parent="kustigais/Atvermas durvis" unique_id=1445725127 instance=ExtResource("18_2qpin")]
 position = Vector2(211, 319)
 scale = Vector2(-1, 1)
 
-[node name="Priekšplāns" type="Node" parent="."]
+[node name="Priekšplāns" type="Node" parent="." unique_id=201779587]
 
-[node name="priekšplāns" type="TileMapLayer" parent="Priekšplāns"]
+[node name="priekšplāns" type="TileMapLayer" parent="Priekšplāns" unique_id=90595103]
 visible = false
 z_index = 4096
 material = SubResource("ShaderMaterial_1fr6y")
@@ -6957,12 +6958,12 @@ tile_map_data = PackedByteArray("AABrAPz/AAABAB4AAABrAP3/AAABAB8AAABrAP7/AAABACA
 tile_set = SubResource("TileSet_1fr6y")
 script = ExtResource("20_vae11")
 
-[node name="efekti" type="Node" parent="."]
+[node name="efekti" type="Node" parent="." unique_id=1475761464]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="efekti"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="efekti" unique_id=20872852]
 environment = SubResource("Environment_x0ka3")
 
-[node name="vinjete" type="ColorRect" parent="efekti"]
+[node name="vinjete" type="ColorRect" parent="efekti" unique_id=1768357606]
 z_index = 4096
 material = SubResource("ShaderMaterial_bjha6")
 anchors_preset = 15
