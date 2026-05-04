@@ -81,7 +81,9 @@ var saved_collision_mask := 0
 
 var air_state := "ground"
 var was_on_floor := false
-
+var anim_lock_timer := 0.0
+var current_anim := ""
+var fall_enter_lock := 0.0
 
 func _ready() -> void:
 	saved_collision_layer = collision_layer
@@ -144,7 +146,7 @@ func _physics_process(delta):
 	# =========================
 	update_floor_type()
 
-	update_air_state() # <-- ADD THIS (explained below)
+	
 
 	wall_jump_grace_timer = max(wall_jump_grace_timer - delta, 0)
 	wall_jump_immunity = max(wall_jump_immunity - delta, 0)
@@ -152,8 +154,17 @@ func _physics_process(delta):
 	# =========================
 	# ANIMATION (FINAL STEP)
 	# =========================
-	handle_animations()
+	update_air_state()
 
+	if anim_lock_timer > 0:
+		anim_lock_timer -= delta
+		handle_animations()
+		return
+
+	handle_animations()
+	
+	
+	
 # ==============================
 # CONSOLE / UI INPUT BLOCK
 # ==============================
@@ -463,28 +474,60 @@ func update_air_state():
 
 	var on_floor := is_on_floor()
 
-	# landing
+	# =========================
+	# JUST LANDED
+	# =========================
 	if on_floor and not was_on_floor:
 		air_state = "land"
+		anim_lock_timer = 0.25
 
-	# leaving ground
+	# =========================
+	# JUST LEFT GROUND
+	# =========================
 	elif not on_floor and was_on_floor:
+		fall_enter_lock = 0.25  # IMPORTANT
 		if velocity.y < 0:
 			air_state = "jump"
 		else:
 			air_state = "fall_enter"
 
-	# falling loop
+	# =========================
+	# AIR UPDATE
+	# =========================
 	elif not on_floor:
-		if velocity.y > 0:
-			air_state = "fall_loop"
 
-	was_on_floor = on_floor
+		if fall_enter_lock > 0:
+			fall_enter_lock -= get_physics_process_delta_time()
+			air_state = "fall_enter"
+		else:
+			if velocity.y > 0:
+				air_state = "fall_loop"
 
-	# reset after landing
-	if air_state == "land" and on_floor:
+	# =========================
+	# BACK TO GROUND
+	# =========================
+	elif on_floor and anim_lock_timer <= 0:
 		air_state = "ground"
 
+	was_on_floor = on_floor
+	
+	
+	
+	
+	
+# ==============================
+# HELPER FOR ANIMATIONS
+# ==============================
+func play_anim_locked(name: String, lock_time := 0.0, speed := 1.0):
+	if current_anim == name:
+		return
+
+	anim.play(name)
+	anim.speed_scale = speed
+	current_anim = name
+	anim_lock_timer = lock_time
+	
+	
 # ==============================
 # ANIMATIONS
 # ==============================
@@ -498,61 +541,62 @@ func handle_animations():
 	# SPECIAL MODES
 	# =========================
 	if noclip_mode or fly_mode:
-		if is_moving and not was_moving:
-			anim.play("sak_skriet_" + dir_str)
-		elif is_moving:
-			anim.play("skrien_" + dir_str)
-		elif was_moving and not is_moving:
-			anim.play("skrien_beidz_" + dir_str)
+		if is_moving:
+			play_anim_locked("skrien_" + dir_str)
 		else:
-			anim.play("idle_" + dir_str)
+			play_anim_locked("idle_" + dir_str)
+		was_moving = is_moving
+		return
+
+	# =========================
+	# LANDING (LOCKED)
+	# =========================
+	if air_state == "land":
+		play_anim_locked("krit_miksts_" + dir_str, 0.25, 1.3)
+		return
+
+	# =========================
+	# AIR ANIMATIONS
+	# =========================
+	if not is_on_floor():
+
+		match air_state:
+
+			"jump":
+				play_anim_locked("lec_" + dir_str, 0.2)
+
+			"fall_enter":
+				play_anim_locked("krit_sakums_" + dir_str, 0.3)
+
+			"fall_loop":
+				play_anim_locked("krit_" + dir_str)
+
+			_:
+				if velocity.y > 0:
+					play_anim_locked("krit_" + dir_str)
+				else:
+					play_anim_locked("lec_" + dir_str)
 
 		was_moving = is_moving
 		return
 
 	# =========================
-	# GROUND ANIMATIONS
+	# GROUND MOVEMENT
 	# =========================
-	if is_on_floor():
-
-		if is_moving and not was_moving:
-			anim.play("sak_skriet_" + dir_str)
-		elif is_moving:
-			anim.play("skrien_" + dir_str)
-		elif was_moving and not is_moving:
-			anim.play("skrien_beidz_" + dir_str)
+	if is_moving:
+		if not was_moving:
+			play_anim_locked("sak_skriet_" + dir_str, 0.1)
 		else:
-			anim.play("idle_" + dir_str)
-
-	# =========================
-	# AIR ANIMATIONS (NEW SYSTEM)
-	# =========================
+			play_anim_locked("skrien_" + dir_str)
 	else:
-		match air_state:
+		if was_moving:
+			play_anim_locked("skrien_beidz_" + dir_str, 0.2)
+		else:
+			play_anim_locked("idle_" + dir_str)
 
-			"jump":
-				anim.play("idle_" + dir_str)
-
-			"fall_enter":
-				anim.play("krit_sakums_" + dir_str)
-
-			"fall_loop":
-				anim.play("krit_" + dir_str)
-
-			"land":
-				anim.play("krit_miksts_" + dir_str)
-
-			_:
-				if velocity.y < 0:
-					anim.play("idle_" + dir_str)
-				else:
-					anim.play("fall_loop_" + dir_str)
-
-	# =========================
-	# UPDATE STATE MEMORY
-	# =========================
 	was_moving = is_moving
-
+	
+	
 # ==============================
 # SAVES
 # ==============================
