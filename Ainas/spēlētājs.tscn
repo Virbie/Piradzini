@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://qfsjh6oidbmh"]
+[gd_scene format=3 uid="uid://qfsjh6oidbmh"]
 
 [ext_resource type="PackedScene" uid="uid://cwl3ceqo7qaa5" path="res://Ainas/character_body_2d.tscn" id="1_b308m"]
 [ext_resource type="Script" uid="uid://bh0lwr8wvhg56" path="res://Skripti/House_inside.gd" id="2_2hs8h"]
@@ -10,11 +10,11 @@ size = Vector2(692.375, 123.625)
 size = Vector2(227, 794)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2u7jv"]
-size = Vector2(71, 67)
+size = Vector2(62, 67)
 
-[node name="Spēlētājs" type="Node2D"]
+[node name="Spēlētājs" type="Node2D" unique_id=1082974296]
 
-[node name="Player" parent="." groups=["Debug_manager", "saveable"] instance=ExtResource("1_b308m")]
+[node name="Player" parent="." unique_id=924034880 groups=["Debug_manager", "saveable"] instance=ExtResource("1_b308m")]
 z_index = 1
 position = Vector2(795, 21)
 collision_mask = 3
@@ -27,32 +27,32 @@ gravity = 1400.0
 jump_force = 500.0
 jump_cut = 0.45
 apex_gravity_multiplier = 0.4
-coyote_time = 0.12
-jump_buffer = 0.12
+coyote_time = 0.2
+jump_buffer = 0.15
 dash_speed = 520.0
 dash_time = 0.17
 dash_cooldown = 0.5
-wall_slide_speed = 260.0
+wall_slide_speed = 30.0
 wall_jump_force = Vector2(450, 500)
-wall_stick_time = 0.2
-wall_jump_immunity_time = 0.75
-wall_jump_grace_time = 0.2
+wall_stick_time = 0.3
+wall_jump_immunity_time = 0.5
+wall_jump_grace_time = 0.3
 fly_speed = 450.0
 
-[node name="House_inside_camera" type="Area2D" parent="."]
+[node name="House_inside_camera" type="Area2D" parent="." unique_id=494223686]
 position = Vector2(-546, -37)
 script = ExtResource("2_2hs8h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="House_inside_camera"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="House_inside_camera" unique_id=1894620061]
 position = Vector2(1133.8125, 4.1875)
 shape = SubResource("RectangleShape2D_ebxd8")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="House_inside_camera"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="House_inside_camera" unique_id=279354744]
 position = Vector2(1588.5, 0)
 shape = SubResource("RectangleShape2D_2hxjc")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="House_inside_camera"]
-position = Vector2(1729.5, 356.5)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="House_inside_camera" unique_id=1672431597]
+position = Vector2(1725, 356.5)
 shape = SubResource("RectangleShape2D_2u7jv")
 
 [connection signal="body_entered" from="House_inside_camera" to="House_inside_camera" method="_on_body_entered"]

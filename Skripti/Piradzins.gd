@@ -37,17 +37,17 @@ var floor_is_one_way := false
 @export var jump_cut := 0.45
 @export var apex_gravity_multiplier := 0.4
 
-@export var coyote_time := 0.12
-@export var jump_buffer := 0.12
+@export var coyote_time := 0.2
+@export var jump_buffer := 0.15
 
 @export var dash_speed := 520.0
 @export var dash_time := 0.17
 @export var dash_cooldown := 0.50
 
-@export var wall_slide_speed := 260.0
+@export var wall_slide_speed := 30.0
 @export var wall_jump_force := Vector2(450, 500)
-@export var wall_stick_time := 0.2
-@export var wall_jump_immunity_time := 0.15
+@export var wall_stick_time := 0.3
+@export var wall_jump_immunity_time := 0.50
 @export var wall_jump_grace_time := 0.3
 
 @export var fly_speed := 450.0
@@ -262,8 +262,6 @@ func handle_gravity(delta):
 # ==============================
 func handle_jump():
 
-	jump_buffer_timer = max(jump_buffer_timer - get_physics_process_delta_time(), 0)
-
 	if is_ui_blocking_input():
 		return
 
@@ -313,34 +311,58 @@ func handle_dash(delta):
 # ==============================
 func handle_wall_slide(delta):
 
-	if is_ui_blocking_input():
-		was_on_wall = false
-		return
-
-	if is_dropping_through:
+	if is_ui_blocking_input() or is_dropping_through:
 		was_on_wall = false
 		return
 
 	var on_wall := is_on_wall() and not is_on_floor()
 
-	if on_wall and wall_jump_immunity <= 0 and not wall_stick_active:
+	var wall_dir := 0.0
+	var holding_toward_wall := false
+
+	if on_wall:
+		wall_dir = get_wall_normal().x
+		holding_toward_wall = input_dir != 0 and sign(input_dir) == -wall_dir
+
+	# =========================
+	# START STICK (only once when touching wall while holding)
+	# =========================
+	if on_wall and not was_on_wall and holding_toward_wall:
 		wall_stick_active = true
 		wall_stick_timer = wall_stick_time
 
+	# =========================
+	# STICK PHASE
+	# =========================
 	if wall_stick_active:
-		velocity.y = 0
-		wall_stick_timer -= delta
-		if wall_stick_timer <= 0:
+		if holding_toward_wall:
+			velocity.y = 0
+			wall_stick_timer -= delta
+
+			if wall_stick_timer <= 0:
+				wall_stick_active = false
+		else:
+			# let go → fall immediately
 			wall_stick_active = false
-			velocity.x += -facing * 10
-	elif on_wall:
+
+	# =========================
+	# SLIDE PHASE (only if STILL holding)
+	# =========================
+	elif on_wall and holding_toward_wall:
 		velocity.y = min(velocity.y, wall_slide_speed)
 
+	# =========================
+	# WALL JUMP GRACE
+	# =========================
 	if was_on_wall and not on_wall:
 		wall_jump_grace_timer = wall_jump_grace_time
 
+	# =========================
+	# WALL JUMP
+	# =========================
 	if (on_wall or wall_jump_grace_timer > 0) and Input.is_action_just_pressed("ui_up"):
 		var jump_dir = (-get_wall_normal().x) if on_wall else float(-facing)
+
 		velocity.x = jump_dir * wall_jump_force.x
 		velocity.y = -wall_jump_force.y
 
@@ -350,8 +372,6 @@ func handle_wall_slide(delta):
 		wall_jump_grace_timer = 0
 
 	was_on_wall = on_wall
-
-
 # ==============================
 # TIMERS
 # ==============================
