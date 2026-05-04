@@ -9,7 +9,6 @@ var max_slots := 18
 func add_item(item):
 	if items.size() >= max_slots:
 		return false
-	print("a")
 	items.append(item)
 	inventory_changed.emit()
 	return true

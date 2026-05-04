@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjd0kxqurnxrx" path="res://ui/inventory/inventory_ui.tscn" id="4_v6kiu"]
 [ext_resource type="PackedScene" uid="uid://d1qxbwfa62ohd" path="res://ui/atkukainosans_saskarne/debug_console.tscn" id="5_4626d"]
 [ext_resource type="PackedScene" uid="uid://qfsjh6oidbmh" path="res://Ainas/spēlētājs.tscn" id="6_hyoiv"]
+[ext_resource type="PackedScene" uid="uid://lebm4mr4jwds" path="res://Ainas/pause_menu.tscn" id="6_t78xy"]
 
 [node name="Spēle" type="Node" unique_id=1902373379]
 
@@ -21,6 +22,8 @@ position = Vector2(-126, -477)
 [node name="InventoryUI" parent="." unique_id=47406244 instance=ExtResource("4_v6kiu")]
 
 [node name="DebugConsole" parent="." unique_id=1965040521 instance=ExtResource("5_4626d")]
+
+[node name="PauseMenu" parent="." unique_id=395610444 instance=ExtResource("6_t78xy")]
 
 [node name="Spēlētājs" parent="." unique_id=1105823247 instance=ExtResource("6_hyoiv")]
 position = Vector2(-126, -477)

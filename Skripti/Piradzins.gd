@@ -79,6 +79,9 @@ var noclip_mode := false
 var saved_collision_layer := 0
 var saved_collision_mask := 0
 
+var air_state := "ground"
+var was_on_floor := false
+
 
 func _ready() -> void:
 	saved_collision_layer = collision_layer
@@ -99,6 +102,9 @@ func _ready() -> void:
 # ==============================
 func _physics_process(delta):
 
+	# =========================
+	# SPECIAL MODES (early exit)
+	# =========================
 	if noclip_mode:
 		handle_fly_input()
 		global_position += velocity * delta
@@ -112,23 +118,41 @@ func _physics_process(delta):
 		handle_animations()
 		return
 
+	# =========================
+	# INPUT + TIMERS
+	# =========================
 	update_drop_through(delta)
 	handle_timers(delta)
 	read_input()
+
+	# =========================
+	# MOVEMENT LOGIC
+	# =========================
 	handle_horizontal(delta)
 	handle_gravity(delta)
 	handle_jump()
 	handle_dash(delta)
 	handle_wall_slide(delta)
 
+	# =========================
+	# PHYSICS STEP
+	# =========================
 	move_and_slide()
+
+	# =========================
+	# STATE UPDATES (IMPORTANT FOR ANIMATIONS)
+	# =========================
 	update_floor_type()
 
-	handle_animations()
+	update_air_state() # <-- ADD THIS (explained below)
 
 	wall_jump_grace_timer = max(wall_jump_grace_timer - delta, 0)
 	wall_jump_immunity = max(wall_jump_immunity - delta, 0)
 
+	# =========================
+	# ANIMATION (FINAL STEP)
+	# =========================
+	handle_animations()
 
 # ==============================
 # CONSOLE / UI INPUT BLOCK
@@ -432,6 +456,34 @@ func set_noclip(enabled: bool) -> void:
 func toggle_noclip() -> void:
 	set_noclip(not noclip_mode)
 
+# ==============================
+# AIR STATE FOR ANIMATIONS
+# ==============================
+func update_air_state():
+
+	var on_floor := is_on_floor()
+
+	# landing
+	if on_floor and not was_on_floor:
+		air_state = "land"
+
+	# leaving ground
+	elif not on_floor and was_on_floor:
+		if velocity.y < 0:
+			air_state = "jump"
+		else:
+			air_state = "fall_enter"
+
+	# falling loop
+	elif not on_floor:
+		if velocity.y > 0:
+			air_state = "fall_loop"
+
+	was_on_floor = on_floor
+
+	# reset after landing
+	if air_state == "land" and on_floor:
+		air_state = "ground"
 
 # ==============================
 # ANIMATIONS
@@ -442,6 +494,9 @@ func handle_animations():
 	var is_moving: bool = abs(velocity.x) > move_threshold
 	var dir_str := "right" if facing == 1 else "left"
 
+	# =========================
+	# SPECIAL MODES
+	# =========================
 	if noclip_mode or fly_mode:
 		if is_moving and not was_moving:
 			anim.play("sak_skriet_" + dir_str)
@@ -455,7 +510,11 @@ func handle_animations():
 		was_moving = is_moving
 		return
 
+	# =========================
+	# GROUND ANIMATIONS
+	# =========================
 	if is_on_floor():
+
 		if is_moving and not was_moving:
 			anim.play("sak_skriet_" + dir_str)
 		elif is_moving:
@@ -464,11 +523,35 @@ func handle_animations():
 			anim.play("skrien_beidz_" + dir_str)
 		else:
 			anim.play("idle_" + dir_str)
+
+	# =========================
+	# AIR ANIMATIONS (NEW SYSTEM)
+	# =========================
 	else:
-		anim.play("idle_" + dir_str)
+		match air_state:
 
+			"jump":
+				anim.play("idle_" + dir_str)
+
+			"fall_enter":
+				anim.play("krit_sakums_" + dir_str)
+
+			"fall_loop":
+				anim.play("krit_" + dir_str)
+
+			"land":
+				anim.play("krit_miksts_" + dir_str)
+
+			_:
+				if velocity.y < 0:
+					anim.play("idle_" + dir_str)
+				else:
+					anim.play("fall_loop_" + dir_str)
+
+	# =========================
+	# UPDATE STATE MEMORY
+	# =========================
 	was_moving = is_moving
-
 
 # ==============================
 # SAVES
