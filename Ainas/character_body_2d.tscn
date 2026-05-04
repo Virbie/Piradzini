@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cwl3ceqo7qaa5"]
+[gd_scene format=3 uid="uid://cwl3ceqo7qaa5"]
 
 [ext_resource type="Script" uid="uid://dt4l8p6wp5ph1" path="res://Skripti/Piradzins.gd" id="1_ij6vw"]
 [ext_resource type="Script" uid="uid://dnr8qhsgrtdn5" path="res://Skripti/camera.gd" id="2_ghijl"]
@@ -6,7 +6,23 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ij6vw"]
 radius = 11.0
-height = 52.0
+height = 48.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfhmk"]
+atlas = ExtResource("2_ij6vw")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm1gg"]
+atlas = ExtResource("2_ij6vw")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tvgi"]
+atlas = ExtResource("2_ij6vw")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk24m"]
+atlas = ExtResource("2_ij6vw")
+region = Rect2(320, 192, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ij6vw"]
 atlas = ExtResource("2_ij6vw")
@@ -134,6 +150,23 @@ region = Rect2(128, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dd465"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfhmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm1gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tvgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk24m")
+}],
+"loop": true,
+"name": &"Krīt_left",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ij6vw")
@@ -271,31 +304,11 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="Main_player" type="CharacterBody2D" groups=["player"]]
+[node name="Main_player" type="CharacterBody2D" unique_id=1782663605 groups=["player"]]
 position = Vector2(-1, -1)
 script = ExtResource("1_ij6vw")
-drop_through_duration = null
-max_speed = null
-acceleration = null
-deceleration = null
-air_control = null
-gravity = null
-jump_force = null
-jump_cut = null
-apex_gravity_multiplier = null
-coyote_time = null
-jump_buffer = null
-dash_speed = null
-dash_time = null
-dash_cooldown = null
-wall_slide_speed = null
-wall_jump_force = null
-wall_stick_time = null
-wall_jump_immunity_time = null
-wall_jump_grace_time = null
-fly_speed = null
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1528585211]
 zoom = Vector2(4, 4)
 limit_left = -9999999
 limit_right = 10000001
@@ -303,11 +316,12 @@ limit_bottom = -20
 limit_smoothed = true
 script = ExtResource("2_ghijl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=513376490]
 position = Vector2(-12, -17)
 shape = SubResource("CapsuleShape2D_ij6vw")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-12, -21)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1005692167]
+position = Vector2(-13, -21)
 sprite_frames = SubResource("SpriteFrames_dd465")
-animation = &"skrien_beidz_right"
+animation = &"Krīt_left"
+frame_progress = 0.7587232
