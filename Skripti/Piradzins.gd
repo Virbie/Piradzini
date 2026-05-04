@@ -473,6 +473,7 @@ func toggle_noclip() -> void:
 func update_air_state():
 
 	var on_floor := is_on_floor()
+	var dt := get_physics_process_delta_time()
 
 	# =========================
 	# JUST LANDED
@@ -480,37 +481,51 @@ func update_air_state():
 	if on_floor and not was_on_floor:
 		air_state = "land"
 		anim_lock_timer = 0.25
+		fall_enter_lock = 0.0
+		was_on_floor = on_floor
+		return
 
 	# =========================
 	# JUST LEFT GROUND
 	# =========================
-	elif not on_floor and was_on_floor:
-		fall_enter_lock = 0.25  # IMPORTANT
+	if not on_floor and was_on_floor:
+
 		if velocity.y < 0:
 			air_state = "jump"
 		else:
 			air_state = "fall_enter"
 
+		fall_enter_lock = 0.25
+		was_on_floor = on_floor
+		return
+
 	# =========================
 	# AIR UPDATE
 	# =========================
-	elif not on_floor:
+	if not on_floor:
 
-		if fall_enter_lock > 0:
-			fall_enter_lock -= get_physics_process_delta_time()
+		if air_state == "jump":
+			# let jump persist briefly, then allow fall transition
+			if velocity.y >= 0:
+				air_state = "fall_enter"
+
+		elif fall_enter_lock > 0:
+			fall_enter_lock -= dt
 			air_state = "fall_enter"
+
 		else:
-			if velocity.y > 0:
-				air_state = "fall_loop"
+			air_state = "fall_loop"
+
+		was_on_floor = on_floor
+		return
 
 	# =========================
 	# BACK TO GROUND
 	# =========================
-	elif on_floor and anim_lock_timer <= 0:
+	if on_floor and anim_lock_timer <= 0:
 		air_state = "ground"
 
 	was_on_floor = on_floor
-	
 	
 	
 	
@@ -563,19 +578,16 @@ func handle_animations():
 		match air_state:
 
 			"jump":
-				play_anim_locked("lec_" + dir_str, 0.2)
+				play_anim_locked("lec_" + dir_str, 0.10)
 
 			"fall_enter":
-				play_anim_locked("krit_sakums_" + dir_str, 0.3)
+				play_anim_locked("krit_sakums_" + dir_str, 0.25)
 
 			"fall_loop":
 				play_anim_locked("krit_" + dir_str)
 
 			_:
-				if velocity.y > 0:
-					play_anim_locked("krit_" + dir_str)
-				else:
-					play_anim_locked("lec_" + dir_str)
+				play_anim_locked("krit_" + dir_str)
 
 		was_moving = is_moving
 		return
