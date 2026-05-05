@@ -604,7 +604,7 @@ animations = [{
 "duration": 0.4,
 "texture": SubResource("AtlasTexture_kg0yp")
 }],
-"loop": true,
+"loop": false,
 "name": &"sit_left",
 "speed": 5.0
 }, {
@@ -743,5 +743,4 @@ shape = SubResource("CapsuleShape2D_ij6vw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1005692167]
 position = Vector2(-13, -21)
 sprite_frames = SubResource("SpriteFrames_dd465")
-animation = &"beigas"
-frame_progress = 0.7784368
+animation = &"sit_left"

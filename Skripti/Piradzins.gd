@@ -52,7 +52,8 @@ var floor_is_one_way := false
 
 @export var fly_speed := 450.0
 
-
+@export var fall_trigger_time := 0.1
+@export var fall_min_speed := 120.0
 # ==============================
 # INTERNAL STATE
 # ==============================
@@ -84,6 +85,11 @@ var was_on_floor := false
 var anim_lock_timer := 0.0
 var current_anim := ""
 var fall_enter_lock := 0.0
+
+var fall_buffer := 0.0
+
+var is_attacking := false
+var attack_lock_time := 0.25
 
 func _ready() -> void:
 	saved_collision_layer = collision_layer
@@ -126,6 +132,7 @@ func _physics_process(delta):
 	update_drop_through(delta)
 	handle_timers(delta)
 	read_input()
+	handle_attack_input()
 
 	# =========================
 	# MOVEMENT LOGIC
@@ -154,7 +161,7 @@ func _physics_process(delta):
 	# =========================
 	# ANIMATION (FINAL STEP)
 	# =========================
-	update_air_state()
+	update_air_state(delta)
 
 	if anim_lock_timer > 0:
 		anim_lock_timer -= delta
@@ -342,6 +349,16 @@ func handle_dash(delta):
 
 
 # ==============================
+# ATTACK
+# ==============================
+func handle_attack_input():
+	if is_ui_blocking_input():
+		return
+
+	if Input.is_action_just_pressed("attack") and not is_attacking:
+		is_attacking = true
+
+# ==============================
 # WALL SLIDE + WALL JUMP
 # ==============================
 func handle_wall_slide(delta):
@@ -467,68 +484,69 @@ func set_noclip(enabled: bool) -> void:
 func toggle_noclip() -> void:
 	set_noclip(not noclip_mode)
 
+
+
+
 # ==============================
 # AIR STATE FOR ANIMATIONS
 # ==============================
-func update_air_state():
-
-	var on_floor := is_on_floor()
-	var dt := get_physics_process_delta_time()
+func update_air_state(delta):
+	if anim_lock_timer > 0:
+		return
+	var on_floor = is_on_floor()
 
 	# =========================
-	# JUST LANDED
+	# LANDING / GROUNDED
 	# =========================
-	if on_floor and not was_on_floor:
-		air_state = "land"
-		anim_lock_timer = 0.25
-		fall_enter_lock = 0.0
-		was_on_floor = on_floor
+	if on_floor:
+		if not was_on_floor:
+			air_state = "land"
+			anim_lock_timer = 0.25
+			fall_enter_lock = 0.15
+		else:
+			air_state = "ground"
+
+		was_on_floor = true
+		fall_buffer = 0.0
 		return
 
 	# =========================
-	# JUST LEFT GROUND
+	# JUST LEFT FLOOR (HIGH PRIORITY STATE)
 	# =========================
-	if not on_floor and was_on_floor:
-
-		if velocity.y < 0:
+	if was_on_floor:
+		if velocity.y < -10:
 			air_state = "jump"
 		else:
 			air_state = "fall_enter"
 
-		fall_enter_lock = 0.25
-		was_on_floor = on_floor
-		return
+		fall_enter_lock = 0.15
+		was_on_floor = false
+		return   # 🔥 IMPORTANT FIX
 
 	# =========================
-	# AIR UPDATE
+	# TRANSITION LOCK (DON'T OVERRIDE STATE)
 	# =========================
-	if not on_floor:
-
-		if air_state == "jump":
-			# let jump persist briefly, then allow fall transition
-			if velocity.y >= 0:
-				air_state = "fall_enter"
-
-		elif fall_enter_lock > 0:
-			fall_enter_lock -= dt
-			air_state = "fall_enter"
-
-		else:
-			air_state = "fall_loop"
-
-		was_on_floor = on_floor
-		return
+	if fall_enter_lock > 0:
+		fall_enter_lock -= delta
+		return   # 🔥 IMPORTANT FIX
 
 	# =========================
-	# BACK TO GROUND
+	# NORMAL AIR LOGIC
 	# =========================
-	if on_floor and anim_lock_timer <= 0:
-		air_state = "ground"
+	if velocity.y > fall_min_speed:
+		fall_buffer += delta
+	else:
+		fall_buffer = 0.0
 
-	was_on_floor = on_floor
-	
-	
-	
+	if air_state == "jump" and velocity.y >= 0:
+		air_state = "fall_enter"
+
+	elif fall_buffer > fall_trigger_time:
+		air_state = "fall_loop"
+
+	else:
+		air_state = "fall_enter"
+		
 	
 # ==============================
 # HELPER FOR ANIMATIONS
@@ -547,11 +565,27 @@ func play_anim_locked(name: String, lock_time := 0.0, speed := 1.0):
 # ANIMATIONS
 # ==============================
 func handle_animations():
-
+	
 	var move_threshold: float = 10.0
 	var is_moving: bool = abs(velocity.x) > move_threshold
 	var dir_str := "right" if facing == 1 else "left"
+	
+	
+	# =========================
+	# ATTACK (HIGHEST PRIORITY)
+	# =========================
+	if is_attacking:
 
+		# only start animation once
+		if current_anim != "sit_" + dir_str:
+			anim.play("sit_" + dir_str)
+			current_anim = "sit_" + dir_str
+
+		# end attack when animation finishes
+		if not anim.is_playing():
+			is_attacking = false
+
+		return
 	# =========================
 	# SPECIAL MODES
 	# =========================
@@ -573,7 +607,7 @@ func handle_animations():
 	# =========================
 	# AIR ANIMATIONS
 	# =========================
-	if not is_on_floor():
+	if air_state != "ground":
 
 		match air_state:
 
@@ -581,7 +615,7 @@ func handle_animations():
 				play_anim_locked("lec_" + dir_str, 0.10)
 
 			"fall_enter":
-				play_anim_locked("krit_sakums_" + dir_str, 0.25)
+				play_anim_locked("krit_sakums_" + dir_str, 0.1, 0.8)
 
 			"fall_loop":
 				play_anim_locked("krit_" + dir_str)
