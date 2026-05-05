@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://j2hgqnb0qdvr"]
+[gd_scene format=3 uid="uid://j2hgqnb0qdvr"]
 
 [ext_resource type="Script" uid="uid://cx5qyofospy82" path="res://Skripti/zemitanieks.gd" id="1_pba07"]
 [ext_resource type="Texture2D" uid="uid://dxvaux07ewxa6" path="res://assets/gopniks/gopniks-02.png" id="2_2rb57"]
@@ -12,10 +12,10 @@ animations = [{
 "texture": ExtResource("2_2rb57")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_g3bu0")
+"texture": ExtResource("4_cwphr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_cwphr")
+"texture": ExtResource("3_g3bu0")
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_g3bu0")
@@ -29,29 +29,51 @@ animations = [{
 radius = 16.0
 height = 48.0
 
-[node name="Pretinieki" type="Node"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n48vl"]
+radius = 16.0
+height = 46.0
 
-[node name="zemitanieks" type="CharacterBody2D" parent="." node_paths=PackedStringArray("left_point", "right_point")]
+[node name="Pretinieki" type="Node" unique_id=1776622919]
+
+[node name="zemitanieks" type="CharacterBody2D" parent="." unique_id=880408297 node_paths=PackedStringArray("left_point", "right_point")]
 z_index = -1
 position = Vector2(1960, -200)
 script = ExtResource("1_pba07")
 left_point = NodePath("../patrol_area/LeftPoint")
 right_point = NodePath("../patrol_area/RightPoint")
 
-[node name="zemitanieks_anim" type="AnimatedSprite2D" parent="zemitanieks"]
+[node name="zemitanieks_anim" type="AnimatedSprite2D" parent="zemitanieks" unique_id=110391955]
+position = Vector2(-8, 0)
 sprite_frames = SubResource("SpriteFrames_hqns4")
 animation = &"idle"
 frame_progress = 0.40016818
 
-[node name="zemitanieks_coll" type="CollisionShape2D" parent="zemitanieks"]
+[node name="zemitanieks_coll" type="CollisionShape2D" parent="zemitanieks" unique_id=669393966]
 position = Vector2(-8, 16)
 shape = SubResource("CapsuleShape2D_24dk6")
 
-[node name="patrol_area" type="Marker2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="zemitanieks" unique_id=1118341645]
+position = Vector2(-9, 13)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zemitanieks/Hurtbox" unique_id=1399339941]
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_n48vl")
+
+[node name="EnemyHitbox" type="Area2D" parent="zemitanieks" unique_id=1036151133]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zemitanieks/EnemyHitbox" unique_id=4785925]
+position = Vector2(-8, 16)
+shape = SubResource("CapsuleShape2D_n48vl")
+
+[node name="patrol_area" type="Marker2D" parent="." unique_id=1092849442]
 position = Vector2(1960, -150)
 
-[node name="LeftPoint" type="Marker2D" parent="patrol_area"]
+[node name="LeftPoint" type="Marker2D" parent="patrol_area" unique_id=1963504579]
 position = Vector2(-250, 0)
 
-[node name="RightPoint" type="Marker2D" parent="patrol_area"]
+[node name="RightPoint" type="Marker2D" parent="patrol_area" unique_id=1004352876]
 position = Vector2(250, 0)

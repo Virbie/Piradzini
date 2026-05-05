@@ -5,8 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dbdy8h8irw1g7" path="res://assets/piradzins.png" id="2_ij6vw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ij6vw"]
-radius = 11.0
-height = 48.0
+height = 45.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dk67"]
 atlas = ExtResource("2_ij6vw")
@@ -633,7 +632,7 @@ animations = [{
 "duration": 0.4,
 "texture": SubResource("AtlasTexture_dilus")
 }],
-"loop": true,
+"loop": false,
 "name": &"sit_right",
 "speed": 5.0
 }, {
@@ -724,8 +723,15 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfhmk"]
+size = Vector2(40, 15)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dfhmk"]
+radius = 11.0
+height = 48.0
+
 [node name="Main_player" type="CharacterBody2D" unique_id=1782663605 groups=["player"]]
-position = Vector2(-1, -1)
+position = Vector2(0, -1)
 script = ExtResource("1_ij6vw")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1528585211]
@@ -737,10 +743,29 @@ limit_smoothed = true
 script = ExtResource("2_ghijl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=513376490]
-position = Vector2(-12, -17)
+position = Vector2(0, -17)
 shape = SubResource("CapsuleShape2D_ij6vw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1005692167]
-position = Vector2(-13, -21)
+position = Vector2(-1, -21)
 sprite_frames = SubResource("SpriteFrames_dd465")
 animation = &"sit_left"
+
+[node name="AttackHitbox" type="Area2D" parent="." unique_id=876490297]
+position = Vector2(0, -16)
+collision_layer = 4
+collision_mask = 4
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=1608070360]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_dfhmk")
+
+[node name="PlayerHurtbox" type="Area2D" parent="." unique_id=527848990]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtbox" unique_id=672821149]
+position = Vector2(0, -17)
+shape = SubResource("CapsuleShape2D_dfhmk")

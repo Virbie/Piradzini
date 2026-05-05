@@ -3,6 +3,9 @@ extends CharacterBody2D
 @onready var camera = $Camera2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
+
+@onready var hitbox: Area2D = $AttackHitbox
+
 var default_zoom := Vector2(3, 3)
 var target_zoom := default_zoom
 var zoom_speed := 2.0
@@ -54,6 +57,9 @@ var floor_is_one_way := false
 
 @export var fall_trigger_time := 0.1
 @export var fall_min_speed := 120.0
+
+@export var attack_lock_time := 0.25
+
 # ==============================
 # INTERNAL STATE
 # ==============================
@@ -89,11 +95,20 @@ var fall_enter_lock := 0.0
 var fall_buffer := 0.0
 
 var is_attacking := false
-var attack_lock_time := 0.25
+var attack_dir := 1
+var attack_anim_name := ""
+var attack_timer := 0.0
+var hitbox_active := false #attack hitbox
+
+var player_hit_cooldown := 0.0
+@onready var player_hurtbox: Area2D = $PlayerHurtbox
 
 func _ready() -> void:
 	saved_collision_layer = collision_layer
 	saved_collision_mask = collision_mask
+	hitbox.monitoring = false
+	hitbox.monitorable = false
+	player_hurtbox.area_entered.connect(_on_player_hit)
 	Inventory.add_item({
 		"name": "Pipars",
 		"icon": load("res://assets/items/DR_pepper.png")
@@ -103,8 +118,15 @@ func _ready() -> void:
 			"name": "Kvass",
 			"icon": load("res://assets/items/kvass.png")
 		})
-
-
+	anim.animation_finished.connect(_on_anim_finished)
+	
+func _on_anim_finished():
+	if is_attacking:
+		is_attacking = false
+		current_anim = ""
+		hitbox_active = false
+		
+		
 # ==============================
 # GODOT LOOP
 # ==============================
@@ -129,10 +151,14 @@ func _physics_process(delta):
 	# =========================
 	# INPUT + TIMERS
 	# =========================
+	player_hit_cooldown = max(player_hit_cooldown - delta, 0)
 	update_drop_through(delta)
 	handle_timers(delta)
 	read_input()
 	handle_attack_input()
+	attack_timer = max(attack_timer - delta, 0)
+	if not is_attacking:
+		hitbox_active = false
 
 	# =========================
 	# MOVEMENT LOGIC
@@ -162,11 +188,9 @@ func _physics_process(delta):
 	# ANIMATION (FINAL STEP)
 	# =========================
 	update_air_state(delta)
-
+	
 	if anim_lock_timer > 0:
 		anim_lock_timer -= delta
-		handle_animations()
-		return
 
 	handle_animations()
 	
@@ -265,6 +289,10 @@ func handle_horizontal(delta):
 		velocity.x = dash_dir * dash_speed
 		return
 
+	if is_attacking:
+		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
+		return
+
 	var target_speed = input_dir * max_speed
 	var accel = acceleration if is_on_floor() else acceleration * air_control
 
@@ -275,7 +303,6 @@ func handle_horizontal(delta):
 
 	if input_dir != 0:
 		facing = sign(input_dir)
-
 
 # ==============================
 # GRAVITY
@@ -354,10 +381,34 @@ func handle_dash(delta):
 func handle_attack_input():
 	if is_ui_blocking_input():
 		return
-
-	if Input.is_action_just_pressed("attack") and not is_attacking:
+	if Input.is_action_just_pressed("attack") and not is_attacking and attack_timer <= 0:
 		is_attacking = true
+		attack_dir = facing
+		attack_anim_name = "sit_" + ("right" if attack_dir == 1 else "left")
+		attack_timer = attack_lock_time
+		current_anim = ""
+		anim_lock_timer = 0.0
+		_activate_hitbox() 
 
+
+
+func _activate_hitbox():
+	if hitbox_active:
+		return  # ← already running, don't start another
+	
+	hitbox_active = true
+	var hitbox_offset := 40.0
+	hitbox.position.x = hitbox_offset * attack_dir
+	hitbox.monitoring = true
+	hitbox.monitorable = true
+
+	await get_tree().create_timer(0.15).timeout
+	hitbox.monitoring = false
+	hitbox.monitorable = false
+
+	hitbox_active = false
+		
+		
 # ==============================
 # WALL SLIDE + WALL JUMP
 # ==============================
@@ -568,24 +619,20 @@ func handle_animations():
 	
 	var move_threshold: float = 10.0
 	var is_moving: bool = abs(velocity.x) > move_threshold
-	var dir_str := "right" if facing == 1 else "left"
-	
+	var dir := attack_dir if is_attacking else facing
+	var dir_str := "right" if dir == 1 else "left"
 	
 	# =========================
 	# ATTACK (HIGHEST PRIORITY)
 	# =========================
 	if is_attacking:
-
-		# only start animation once
-		if current_anim != "sit_" + dir_str:
-			anim.play("sit_" + dir_str)
-			current_anim = "sit_" + dir_str
-
-		# end attack when animation finishes
-		if not anim.is_playing():
-			is_attacking = false
-
+		if current_anim != attack_anim_name:
+			anim.play(attack_anim_name)
+			anim.speed_scale = 1.5
+			current_anim = attack_anim_name
 		return
+		
+		
 	# =========================
 	# SPECIAL MODES
 	# =========================
@@ -676,3 +723,22 @@ func _apply_loaded_position(target_pos: Vector2) -> void:
 	await get_tree().physics_frame
 	global_position = target_pos + Vector2(0, -2)
 	velocity = Vector2.ZERO
+
+
+# ==============================
+# PLAYER DAMAGE
+# ==============================
+func _on_player_hit(area: Area2D):
+	if area.name == "EnemyHitbox" and player_hit_cooldown <= 0:
+		player_hit_cooldown = 1.0
+		take_damage(2)
+
+func take_damage(amount: int):
+	var health_ui = get_tree().get_first_node_in_group("health_ui")
+	if health_ui:
+		health_ui.take_damage(amount)
+		if health_ui.current_hp <= 0:
+			die()
+
+func die():
+	get_tree().reload_current_scene()
